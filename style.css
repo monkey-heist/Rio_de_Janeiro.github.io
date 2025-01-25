@@ -1,0 +1,1116 @@
+/* Thème général */
+body {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #000000; /* Noir profond */
+    background-color: #000000; /* grsi clair */
+    margin: 0;
+    padding: 0;
+    
+}
+/* Effet lumineux sur toute la page avec un grand rectangle */
+body::before {
+    content: '';
+    position: fixed; /* Utilisation de fixed pour que l'effet reste à l'arrière-plan */
+    top: 0;
+    left: 0;
+    width: 100vw;  /* Prend la largeur totale de la fenêtre */
+    height: 100vh; /* Prend la hauteur totale de la fenêtre */
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.25), transparent 60%); /* Plus visible */
+    animation: rotateGlow 8s linear infinite;
+    z-index: -1; /* Pour que l'effet soit derrière tout le contenu */
+}
+ 
+/* Animation de rotation de l'effet lumineux */
+@keyframes rotateGlow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+html {
+    scroll-behavior: smooth; /* Cette propriété active le défilement fluide */
+}
+
+/* Barre de navigation futuriste avec formes cylindriques */
+.navbar {
+    background-color: transparent; /* Fond transparent pour un design épuré */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 40px; /* Augmentation du padding à gauche pour décaler */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-sizing: border-box; /* Assure que le padding ne coupe pas la barre */
+}
+
+.navbar-logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00ffcc; /* Vert néon futuriste */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header nav .logo img {
+    height: auto;
+    width: 45px; /* Taille ajustée pour le logo */
+    transition: transform 0.3s ease;
+}
+
+header nav .logo img:hover {
+    transform: scale(1.1); /* Zoom subtil au survol */
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 20px; /* Espacement uniforme entre les liens */
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Blanc pour contraster */
+    font-weight: 500;
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+    border-radius: 50px; /* Forme cylindrique */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    background-color: #00ffcc; /* Vert néon en survol */
+    color: #1a1a1a; /* Gris foncé pour contraste */
+    transform: translateY(-3px); /* Soulèvement au survol */
+}
+
+
+
+/* Bannière principale */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff; /* Texte clair pour un meilleur contraste */
+    overflow: hidden;
+    background: none; /* Aucun fond coloré puisque la vidéo est en fond */
+    margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
+
+}
+
+/* Vidéo de fond */
+.banner video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Permet de couvrir toute la zone */
+    z-index: 0; /* La vidéo reste en arrière-plan */
+    filter: blur(5px); /* Flou léger pour rendre le texte plus lisible */
+}
+
+/* Overlay futuriste */
+.banner .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Couche sombre semi-transparente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    backdrop-filter: blur(5px); /* Flou de fond derrière l'overlay */
+    box-shadow: inset 0 0 50px rgba(0, 255, 255, 0.1); /* Légère lueur pour un effet technologique */
+}
+
+/* Style du titre */
+.banner h1 {
+    font-size: 5rem; /* Augmenter la taille pour un effet plus imposant */
+    font-weight: bold;
+    margin: 0;
+    z-index: 2;
+    color: #000000; /* Couleur néon futuriste */
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Lueur néon autour du texte */
+    animation: fadeInUp 1.5s ease-out; /* Animation d'apparition fluide */
+}
+
+/* Style du texte descriptif */
+.banner p {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+    z-index: 2;
+    color: #e0e0e0; /* Couleur gris clair pour contraster */
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    animation: fadeInUp 2s ease-out; /* Animation d'apparition fluide avec délai */
+}
+
+
+
+
+/* Animation de fade-in pour les éléments */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Section About Monkey Heist */
+.about-section {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);    max-width: 1000px; /* Limite la largeur du texte */
+    margin: 0 auto; /* Centre le texte */
+    padding: 40px;
+    border-radius: 20px; /* Arrondi plus prononcé pour un style moderne */
+    margin-bottom: 40px;
+    text-align: center; /* Centrer tout le contenu */
+    overflow: hidden; /* Empêcher les débordements */
+    position: relative; /* Nécessaire pour les effets */
+}
+
+/* Animation de l'effet lumineux */
+@keyframes rotateGlow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Titre de la section */
+.about-section h2 {
+    color: #000000; /* Couleur néon futuriste */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    z-index: 1;
+    position: relative; /* Nécessaire pour être au-dessus de l'effet */
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Lueur autour du texte */
+    font-weight: bold;
+    animation: fadeIn 1.5s ease-out; /* Apparition fluide */
+}
+
+/* Texte de la section */
+.about-section p {
+    color: #ffffff; /* Gris clair pour un contraste futuriste */
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: justify;
+    z-index: 1;
+    position: relative;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3); /* Lueur légère autour du texte */
+    animation: fadeIn 2s ease-out; /* Apparition fluide avec délai */
+}
+
+/* Effet survol */
+.about-section:hover {
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4), inset 0 0 50px rgba(0, 255, 255, 0.2); /* Accentuation de l'ombre */
+}
+
+
+/* Section Features */
+.features-section {
+    background:  rgba(0, 0, 0, 0.8); /* Dégradé futuriste *//*    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.2), inset 0 0 30px rgba(0, 255, 255, 0.1);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    max-width: 1000px; /* Limite la largeur du texte */
+    margin: 0 auto; /* Centre le texte */
+    margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
+
+}
+
+/* Titre de la section */
+.features-section h2 {
+    color: #000000; /* Couleur néon futuriste */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    z-index: 1;
+    position: relative;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    font-weight: bold;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Conteneur des features */
+.features {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+    z-index: 1;
+    position: relative;
+}
+
+/* Style individuel des features */
+.feature {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3); 
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Titre des features */
+.feature h3 {
+    color: #000000; /* Couleur néon */
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Texte des features */
+.feature p {
+    color: #e0e0e0; /* Gris clair pour un contraste futuriste */
+    font-size: 1rem;
+    line-height: 1.5;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+/* Effet au survol */
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.5), inset 0 0 25px rgba(0, 255, 255, 0.2);
+}
+
+
+
+
+
+/* Styles généraux pour la page de téléchargement */
+.content {
+    padding: 50px auto;
+    padding-top: 100px; /* Espace pour éviter le chevauchement avec la navbar */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px; /* Limite la largeur du texte */
+    margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
+
+}
+
+/* Effet lumineux pour le fond */
+.content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent 60%);
+    animation: rotateGlow 10s linear infinite;
+    z-index: 0;
+}
+
+/* Bouton de téléchargement pleine largeur */
+.download-button {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    
+}
+
+.download-button button {
+    width: 100%; /* Prend toute la largeur */
+    max-width: 700px; /* Largeur maximale pour un rendu élégant */
+    padding: 20px 40px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 255, 255, 0.4)); /* Effet dégradé lumineux */
+    color: #000000; /* Texte futuriste */
+    border: 2px solid rgba(0, 255, 255, 0.5);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    box-shadow: 0 8px 15px rgba(0, 255, 255, 0.3);
+}
+
+.download-button button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.7);
+}
+
+
+
+
+
+
+
+
+
+/* Styles pour la section story */
+.story {
+    max-width: 1000px; /* Limite la largeur du texte */
+    margin: 0 auto; /* Centre le texte */
+    padding: 40px;
+    border-radius: 20px; /* Arrondi plus prononcé pour un style moderne */
+    margin-bottom: 40px;
+    text-align: center; /* Centrer tout le contenu */
+    overflow: hidden; /* Empêcher les débordements */
+    position: relative; /* Nécessaire pour les effets */
+
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);
+}
+
+/* En-tête principal */
+.story h2 {
+    color: #000000; /* Couleur néon futuriste */
+    font-size: 4rem;
+    margin-bottom: 20px;
+    z-index: 1;
+    position: relative; /* Nécessaire pour être au-dessus de l'effet */
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.7); /* Lueur autour du texte */
+    font-weight: bold;
+    animation: fadeIn 1.5s ease-out; /* Apparition fluide */
+}
+
+/* Sous-titres */
+.story h3 {
+    font-size: 28px;
+    color: #000000; /* Couleur néon */
+    margin-top: 30px;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+    position: relative;
+    z-index: 1;
+}
+
+/* Paragraphes */
+.story p {
+    color: #ffffff; /* Gris clair pour un contraste futuriste */
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: justify;
+    z-index: 1;
+    position: relative;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3); /* Lueur légère autour du texte */
+    animation: fadeIn 2s ease-out; /* Apparition fluide avec délai */
+}
+
+/* Liste des clans */
+.story ul.clans {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+/* Items de la liste */
+.story ul.clans li {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #ffffff; /* Texte néon mis en valeur */
+
+}
+
+/* Texte en surbrillance */
+.story .highlight {
+    color: #000000; /* Texte néon mis en valeur */
+    font-weight: bold;
+}
+
+/* Texte final */
+.story .finale {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 30px;
+    color: #000000;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+/* Images */
+.story img {
+    width: 200%;
+    height: 200%;
+   
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Effet au survol des images */
+.story img:hover {
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4), inset 0 0 50px rgba(0, 255, 255, 0.2); /* Accentuation de l'ombre */
+
+}
+
+/* Animation de fond */
+@keyframes rotateGlow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+
+
+
+/* Section Équipe */
+.team-section {
+    max-width: 1000px; /* Limite la largeur du texte */
+    margin: 0 auto; /* Centre le texte */
+    padding: 40px;
+    border-radius: 20px; /* Arrondi plus prononcé pour un style moderne */
+    margin-bottom: 40px;
+    text-align: center; /* Centrer tout le contenu */
+    overflow: hidden; /* Empêcher les débordements */
+    position: relative; /* Nécessaire pour les effets */
+    margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
+
+
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);
+}
+
+.team-section h2 {
+    color: #000000; /* Couleur néon futuriste */
+    font-size: 4rem;
+    margin-bottom: 20px;
+    z-index: 1;
+    position: relative; /* Nécessaire pour être au-dessus de l'effet */
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Lueur autour du texte */
+    font-weight: bold;
+    animation: fadeIn 1.5s ease-out; /* Apparition fluide */
+
+}
+
+/* Grille de l'équipe */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur grand écran */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Case de chaque membre de l'équipe */
+.team-member {
+    border-radius: 10px;
+    overflow: hidden;
+
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+}
+
+/* Image du membre */
+.team-member img {
+    width: 70%;
+    height: 250px;
+    object-fit: cover;
+    /*border: 3px solid #1a1a1a; /* Bordure noir */
+
+
+    
+}
+
+/* Zone de texte avec nom et rôle */
+
+/* Icône de mail à droite du nom */
+.team-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+    padding: 20px;
+    background-color: #000000; /* Marron foncé */
+    color: #fff;
+    
+}
+
+
+.email-icon {
+    width: 20px;  /* Ajuste la largeur de l'icône */
+    height: 20px; /* Ajuste la hauteur de l'icône */
+    margin-left: 10px; /* Ajuste l'espacement entre le nom et l'icône */
+    cursor: pointer;
+}
+
+
+
+.team-info h3 {
+    font-size: 20px;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+/* Texte superposé */
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 18px; /* Ajuste la taille du texte */
+    font-weight: bold;
+    text-align: center;
+    opacity: 0; /* Masque le texte par défaut */
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Empêche le texte d'être sélectionné ou cliquable */
+}
+
+/* Effet de survol */
+.image-container:hover img {
+    transform: scale(1.1); /* Zoom de l'image */
+    filter: brightness(0.5); /* Noircissement */
+}
+
+.image-container:hover .overlay {
+    opacity: 1; /* Affiche le texte */
+}
+
+
+
+
+/* Titre de la section Chronologie */
+.timeline-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    color: #000000;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+
+}
+
+.timeline-section{
+    width: 100%;
+    max-width: 1040px; /* Largeur maximale pour un contenu centré */
+    margin: 0 auto; /* Centre le texte */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7); /* Fond légèrement transparent */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3), inset 0 0 20px rgba(0, 255, 255, 0.1);
+    margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
+
+}
+/* Style général de la chronologie */
+.timeline {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Alignement horizontal des événements */
+    justify-content: space-around; /* Espacement égal entre les événements */
+    position: relative;
+    border-radius: 15px;
+
+        max-width: 1000px; /* Limite la largeur du texte */
+    margin: 0 auto; /* Centre le texte */
+    margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
+
+
+
+}
+
+/* Style de chaque événement */
+.timeline .event {
+    display: flex;
+    flex-direction: column; /* Organise chaque événement en colonne (cercle et contenu) */
+    align-items: center;
+    border-radius: 15px;
+    cursor: pointer;
+    text-align: center; /* Centre le texte */
+    margin-right: 10px; /* Espacement entre les événements */
+    width: 22%; /* Réduit la largeur de chaque événement pour en mettre plus sur la page */
+    max-width: 250px; /* Limite la largeur maximale pour les grands écrans */
+    max-height: 600px;
+    position: relative;
+    padding: 10px; /* Ajoute un peu d'espace à l'intérieur des événements */
+}
+
+/* Le cercle de chaque événement */
+.timeline .event .circle {
+    width: 25px; /* Augmente légèrement la taille du cercle */
+    height: 25px; /* Augmente légèrement la taille du cercle */
+    background-color: #00ffcc;
+    border-radius: 50%;
+    margin-bottom: 10px; /* Espacement entre le cercle et le contenu */
+    position: relative;
+    z-index: 1;
+}
+
+/* Contenu caché au départ */
+.timeline .event .content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 100%;
+    height: 50%; /* Réduit la hauteur du texte pour qu'il soit plus compact */
+    overflow: hidden; /* Cache le texte qui dépasse */
+    margin-top: 10px;
+    border-radius: 15px;
+    color: #ffffff; /* Couleur du texte noir pour un meilleur contraste */
+}
+
+/* Lorsque l'événement est activé, on affiche le contenu */
+.timeline .event.active .content {
+    display: block;
+    opacity: 1;
+}
+
+/* Réduire la taille des paragraphes */
+.timeline .event .content p {
+    font-size: 0.9em; /* Réduit la taille de la police du texte */
+    margin: 0;
+    padding: 0;
+}
+
+/* Réduire la taille des titres */
+.timeline .event .content h3 {
+    font-size: 1.1em; /* Réduit légèrement la taille du titre */
+}
+
+/* Supprimer l'image */
+.timeline .event .timeline-image {
+    display: none; /* On cache l'image */
+}
+
+
+/* Flèches à gauche et à droite des cercles */
+.timeline .event .arrow-left, .timeline .event .arrow-right {
+    position: absolute;
+    top: 50%; /* Positionne la flèche à mi-hauteur du cercle */
+    transform: translateY(-60%); /* Centrage vertical exact */
+    font-size: 50px;
+    color: #00ffcc;
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+
+/* Flèche droite */
+.timeline .event .arrow-right {
+    right: -25px; /* Ajuste l'espace à droite du cercle */
+}
+
+
+
+
+
+
+
+
+/* Section Issues */
+.issues-section {
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    max-width: 980px; /* Limite la largeur du texte */
+    margin: 0 auto; /* Centre le texte */
+
+}
+/* Conteneur des issues */
+.issues-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 1;
+    position: relative;
+
+}
+/* Titre de la section */
+.issues-section h2 {
+    font-size: 2.5rem;
+    color: #000000; /* Néon futuriste */
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.3);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+/* Issue individuelle */
+.issue {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.1), inset 0 0 20px rgba(0, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+
+}
+
+/* Titre des issues */
+.issue h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #000000; /* Néon futuriste */
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+/* Texte des issues */
+.issue p {
+    font-size: 1.1rem;
+    color: #e0e0e0; /* Gris clair */
+    line-height: 1.6;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+    
+}
+
+/* Effet de survol */
+.issue:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.5), inset 0 0 25px rgba(0, 255, 255, 0.3);
+    border-color: #00ffcc; /* Bordure néon */
+    
+}
+
+
+
+
+
+
+
+
+/* Section Ressources */
+.resources-section {
+    padding: 60px 30px;
+    text-align: center;
+    box-shadow:  rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2), inset 0 0 30px rgba(0, 255, 255, 0.1);
+    position: relative;
+    max-width: 1015px; /* Limite la largeur du texte */
+    margin: 0 auto; /* Centre le texte */
+    margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
+
+}
+
+/* Titre de la section */
+.resources-section h2 {
+    color: #000000; /* Couleur néon futuriste */
+    font-size: 4rem;
+    margin-bottom: 30px;
+    z-index: 1;
+    position: relative;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    font-weight: bold;
+    padding-top: 10px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Section Rapports */
+.reports-section h3 {
+    font-size: 28px;
+    color: #000000; /* Couleur néon */
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur grand écran */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1;
+    position: relative;
+}
+
+.report-item {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 255, 255, 0.2));
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2), inset 0 0 15px rgba(0, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.report-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.5), inset 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+.report-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.report-item p {
+    font-size: 16px;
+    color: #e0e0e0; /* Gris clair */
+}
+
+/* Section caractéristiques */
+.characteristics-section h3 {
+    font-size: 28px;
+    color: #000000;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.characteristics-section {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.characteristics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    z-index: 1;
+    position: relative;
+}
+
+.characteristic-item {
+    text-align: center;
+    padding: 15px;
+    border: 2px solid rgba(0, 255, 255, 0.4);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.characteristic-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.characteristic-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.characteristic-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 255, 255, 0.2);
+    border-color: #00ffcc; /* Couleur de l'encadrement au survol */
+}
+/* Section caractéristiques - Paragraphe */
+.characteristics-section p {
+    font-size: 16px;
+    color: #ffffff; /* Marron foncé */
+    margin-top: 10px;
+    text-align: center;
+    line-height: 1.5; /* Espacement des lignes */
+}
+
+
+
+/* Section Outils Utilisés */
+.tools-section h3 {
+    font-size: 28px;
+    color: #000000;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur grand écran */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1;
+    position: relative;
+}
+
+.tool-item {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 255, 255, 0.2));
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2), inset 0 0 15px rgba(0, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tool-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.tool-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.5), inset 0 0 25px rgba(0, 255, 255, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Pied de page futuriste, visible au bas de la page */
+footer {
+    background-color: #1a1a1a; /* Gris foncé pour correspondre à la navbar */
+    color: #e0e0e0; /* Gris clair pour un contraste modéré */
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    position: fixed;
+    bottom: -80px; /* Initialement caché sous la page */
+    left: 50%;
+    transform: translateX(-50%); /* Centré horizontalement */
+    width: 250px; /* Largeur réduite pour un aspect plus compact */
+    border-radius: 50px; /* Forme cylindrique */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre douce */
+    transition: bottom 0.4s ease, transform 0.4s ease; /* Transition douce */
+    z-index: 999;
+}
+
+footer.show {
+    bottom: 20px; /* Le footer devient visible lorsqu'on atteint le bas */
+    transform: translateX(-50%) scale(1); /* Effet de transition avec une légère montée */
+}
+
+footer a {
+    text-decoration: none;
+    color: #00ffcc; /* Vert néon futuriste */
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #e0e0e0; /* Gris clair au survol */
+}
+
+
+
+
+/* Responsiveness pour mobiles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar ul {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    .navbar ul li a {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        margin: 10px 0;
+        width: 90%;
+    }
+}
+/* Responsiveness pour mobiles */
+@media (max-width: 768px) {
+    footer {
+        font-size: 12px;
+        width: 200px; /* Réduire la largeur pour les petits écrans */
+    }
+}
+
+/* Responsivité : pour les petits écrans */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr 1fr; /* 2 colonnes sur écran moyen */
+    }
+}
+
+@media (max-width: 480px) {
+    .team-grid {
+        grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    }
+}
+
+/* Responsivité : pour les petits écrans */
+@media (max-width: 768px) {
+    .reports-grid, .tools-grid {
+        grid-template-columns: 1fr 1fr; /* 2 colonnes sur écran moyen */
+    }
+}
+
+@media (max-width: 480px) {
+    .reports-grid, .tools-grid {
+        grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    }
+}
+
+
+/* Pour les petits écrans */
+@media screen and (max-width: 768px) {
+    .download-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .download-info {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
