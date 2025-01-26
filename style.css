@@ -36,35 +36,32 @@ html {
 }
 
 /* Barre de navigation futuriste avec formes cylindriques */
+/* Barre de navigation futuriste avec formes cylindriques */
 .navbar {
-    background-color: transparent; /* Fond transparent pour un design épuré */
+    background-color: transparent;
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 10px 40px; /* Augmentation du padding à gauche pour décaler */
+    padding: 10px 20px; /* Réduction du padding sur petits écrans */
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    box-sizing: border-box; /* Assure que le padding ne coupe pas la barre */
+    box-sizing: border-box;
 }
 
 .navbar-logo {
-    font-size: 22px;
+    font-size: 20px; /* Réduction de la taille pour les petits écrans */
     font-weight: bold;
-    color: #00ffcc; /* Vert néon futuriste */
+    color: #00ffcc;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 header nav .logo img {
     height: auto;
-    width: 45px; /* Taille ajustée pour le logo */
+    width: 35px; /* Logo plus petit */
     transition: transform 0.3s ease;
-}
-
-header nav .logo img:hover {
-    transform: scale(1.1); /* Zoom subtil au survol */
 }
 
 .navbar ul {
@@ -72,25 +69,75 @@ header nav .logo img:hover {
     padding: 0;
     list-style-type: none;
     display: flex;
-    gap: 20px; /* Espacement uniforme entre les liens */
+    gap: 15px; /* Espacement réduit entre les liens */
 }
 
 .navbar ul li a {
     text-decoration: none;
-    color: #ffffff; /* Blanc pour contraster */
+    color: #ffffff;
     font-weight: 500;
-    font-size: 18px;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
-    border-radius: 50px; /* Forme cylindrique */
+    font-size: 16px; /* Texte plus petit */
+    padding: 8px 16px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .navbar ul li a:hover {
-    background-color: #00ffcc; /* Vert néon en survol */
-    color: #1a1a1a; /* Gris foncé pour contraste */
-    transform: translateY(-3px); /* Soulèvement au survol */
+    background-color: #00ffcc;
+    color: #1a1a1a;
+    transform: translateY(-3px);
 }
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column; /* Navigation verticale */
+        align-items: center;
+        display: none; /* Masquer par défaut */
+        background-color: rgba(0, 0, 0, 0.8); /* Arrière-plan pour le menu déroulant */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        gap: 10px; /* Espacement vertical entre les éléments */
+    }
+
+    .navbar ul.active {
+        display: flex; /* Afficher le menu déroulant quand actif */
+    }
+
+    .navbar ul li a {
+        padding: 10px 20px;
+        font-size: 18px; /* Légèrement plus grand pour un menu vertical */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-logo {
+        font-size: 18px; /* Réduction de la taille du logo */
+    }
+
+    header nav .logo img {
+        width: 30px; /* Logo encore plus petit */
+    }
+}
+
+/* Menu hamburger */
+.menu-toggle {
+    display: none; /* Masquer le menu toggle sur les grands écrans */
+    cursor: pointer;
+    font-size: 24px;
+    color: #00ffcc;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Afficher le menu toggle sur petits écrans */
+    }
+}
+
 
 
 
