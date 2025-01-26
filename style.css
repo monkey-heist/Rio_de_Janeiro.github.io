@@ -764,8 +764,9 @@ header nav .logo img {
     width: 100%;
     height: 50%; /* Réduit la hauteur du texte pour qu'il soit plus compact */
     overflow: hidden; /* Cache le texte qui dépasse */
-    margin-top: 10px;
-    border-radius: 15px;
+   margin-top: 0; /* Supprime l'espace au-dessus */
+    padding-top: 10px; /* Si un padding est appliqué, le supprimer également */
+     border-radius: 15px;
     color: #ffffff; /* Couleur du texte noir pour un meilleur contraste */
 }
 
