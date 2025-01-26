@@ -1191,3 +1191,38 @@ footer a:hover {
         margin-top: 20px;
     }
 }
+
+
+
+/* Personnalisation de la scrollbar */
+::-webkit-scrollbar {
+    width: 10px; /* Largeur de la scrollbar */
+    height: 10px; /* Hauteur de la scrollbar horizontale */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2); /* Fond de la scrollbar */
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #00ffcc, #00b3b3); /* Dégradé pour la barre de défilement */
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.5); /* Bordure de la barre de défilement */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #00b3b3, #00ffcc); /* Effet au survol */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8); /* Ombre au survol */
+}
+
+::-webkit-scrollbar-button {
+    background: transparent;
+    border: none;
+    display: none; /* Cache les boutons de la scrollbar */
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
