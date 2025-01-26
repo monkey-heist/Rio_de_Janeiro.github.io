@@ -139,6 +139,29 @@ header nav .logo img {
 }
 
 
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row-reverse; /* Place le logo à droite */
+    }
+
+    .navbar-logo {
+        font-size: 16px; /* Réduction de la taille du texte du logo */
+    }
+
+    header nav .logo img {
+        width: 25px; /* Réduction de la taille du logo */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-logo {
+        font-size: 14px; /* Taille encore plus petite pour le texte du logo */
+    }
+
+    header nav .logo img {
+        width: 20px; /* Taille encore plus réduite pour le logo */
+    }
+}
 
 
 /* Bannière principale */
