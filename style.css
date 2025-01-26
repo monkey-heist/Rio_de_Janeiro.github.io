@@ -454,13 +454,15 @@ header nav .logo img:hover {
 
 /* Images */
 .story img {
-    width: 200%;
-    height: 200%;
-   
+    width: 100%;
+    height: auto;
+    border-radius: 20px; /* Arrondi plus prononcé pour un style moderne */
+
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     z-index: 1;
 }
+
 
 /* Effet au survol des images */
 .story img:hover {
@@ -679,6 +681,9 @@ header nav .logo img:hover {
     margin-bottom: 10px; /* Espacement entre le cercle et le contenu */
     position: relative;
     z-index: 1;
+    display: flex; /* Assure que le cercle reste toujours visible */
+    justify-content: center;
+    align-items: center;
 }
 
 /* Contenu caché au départ */
@@ -754,6 +759,8 @@ header nav .logo img:hover {
     position: relative;
     max-width: 980px; /* Limite la largeur du texte */
     margin: 0 auto; /* Centre le texte */
+    margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
+
 
 }
 /* Conteneur des issues */
