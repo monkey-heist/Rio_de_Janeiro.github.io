@@ -7,18 +7,7 @@ body {
     padding: 0;
     
 }
-/* Effet lumineux sur toute la page avec un grand rectangle */
-body::before {
-    content: '';
-    position: fixed; /* Utilisation de fixed pour que l'effet reste à l'arrière-plan */
-    top: 0;
-    left: 0;
-    width: 100vw;  /* Prend la largeur totale de la fenêtre */
-    height: 100vh; /* Prend la hauteur totale de la fenêtre */
-    background: radial-gradient(circle, rgba(0, 255, 255, 0.25), transparent 60%); /* Plus visible */
-    animation: rotateGlow 8s linear infinite;
-    z-index: -1; /* Pour que l'effet soit derrière tout le contenu */
-}
+
  
 /* Animation de rotation de l'effet lumineux */
 @keyframes rotateGlow {
