@@ -9,15 +9,6 @@ body {
 }
 
  
-/* Animation de rotation de l'effet lumineux */
-@keyframes rotateGlow {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
 
 
 html {
@@ -249,15 +240,7 @@ header nav .logo img {
     position: relative; /* Nécessaire pour les effets */
 }
 
-/* Animation de l'effet lumineux */
-@keyframes rotateGlow {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
+
 
 /* Titre de la section */
 .about-section h2 {
