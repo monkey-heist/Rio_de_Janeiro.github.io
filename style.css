@@ -523,11 +523,7 @@ header nav .logo img {
 }
 
 
-/* Effet au survol des images */
-.story img:hover {
-    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4), inset 0 0 50px rgba(0, 255, 255, 0.2); /* Accentuation de l'ombre */
 
-}
 
 /* Animation de fond */
 @keyframes rotateGlow {
