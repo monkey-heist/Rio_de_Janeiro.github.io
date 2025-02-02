@@ -859,6 +859,10 @@ p {
     margin: 0 auto; /* Centre le texte */
     margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
 
+    
+    
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
+
 }
 
 /* Titre de la section */
