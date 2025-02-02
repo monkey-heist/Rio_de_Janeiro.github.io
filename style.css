@@ -284,6 +284,7 @@ header nav .logo img {
     max-width: 1000px; /* Limite la largeur du texte */
     margin: 0 auto; /* Centre le texte */
     margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
 
 }
 
