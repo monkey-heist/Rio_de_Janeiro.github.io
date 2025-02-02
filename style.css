@@ -447,7 +447,7 @@ header nav .logo img {
     font-size: 28px;
     color: #000000; /* Couleur néon */
     margin-top: 30px;
-    text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
     position: relative;
     z-index: 1;
 }
