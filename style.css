@@ -274,7 +274,7 @@ header nav .logo img {
 
 /* Section Features */
 .features-section {
-    background:  rgba(0, 0, 0, 0.8); /* Dégradé futuriste *//*    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
+     background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 8px 20px rgba(0, 255, 255, 0.2), inset 0 0 30px rgba(0, 255, 255, 0.1);
