@@ -5,6 +5,7 @@ body {
     background-color: #000000; /* grsi clair */
     margin: 0;
     padding: 0;
+    user-select: none;
     
 }
 
