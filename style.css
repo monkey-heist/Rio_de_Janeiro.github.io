@@ -9,7 +9,18 @@ body {
     
 }
 
- 
+ /* Classe pour afficher la section lors du défilement */
+.fadeInOnScroll {
+    opacity: 0; /* Départ invisible */
+    transform: translateY(50px); /* Déplacement vers le bas au départ */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Animation fluide */
+}
+
+.fadeInOnScroll.visible {
+    opacity: 1; /* Devient visible */
+    transform: translateY(0); /* Reviens à la position d'origine */
+}
+
 
 
 html {
