@@ -491,11 +491,7 @@ header nav .logo img {
 
 }
 
-/* Texte en surbrillance */
-.story .highlight {
-    color: #000000; /* Texte néon mis en valeur */
-    font-weight: bold;
-}
+
 
 /* Texte final */
 .story .finale {
