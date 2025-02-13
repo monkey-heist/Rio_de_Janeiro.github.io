@@ -38,7 +38,7 @@
 
 
     <!-- Section About Monkey Heist -->
-    <section id="about" class="about-section">
+    <section id="about" class="about-section fadeInOnScroll">
         <h2>About Rio De Janeiro</h2>
         <p>
             Rio De Janeiro is a unique video game where monkeys face off in exciting 1vs1 battles. 
@@ -48,7 +48,7 @@
     </section>
 
     <!-- Section Features -->
-    <section id="features" class="features-section">
+    <section id="features" class="features-section fadeInOnScroll">
         <h2>Features</h2>
         <div class="features">
             <div class="feature">
@@ -455,6 +455,25 @@ But beware: one wrong move, and your Golden Banana will be gone.
         document.querySelector('.menu-toggle').addEventListener('click', function() {
     document.querySelector('.navbar ul').classList.toggle('active');
 });
+
+
+
+        // Fonction pour vérifier si un élément est visible à l'écran
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+}
+
+// Ajoute la classe visible lorsque l'élément entre dans la vue
+window.addEventListener('scroll', function () {
+    const sections = document.querySelectorAll('.fadeInOnScroll'); // Sélectionner toutes les sections avec cette classe
+    sections.forEach(function (section) {
+        if (isElementInViewport(section)) {
+            section.classList.add('visible');
+        }
+    });
+});
+
 
     </script>
 
