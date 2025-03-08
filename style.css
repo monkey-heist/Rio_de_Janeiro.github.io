@@ -562,6 +562,11 @@ header nav .logo img {
     justify-items: center; /* Centre tous les éléments horizontalement */
 
 }
+.team-grid > :nth-child(4),
+.team-grid > :nth-child(5) {
+    grid-column: span 1; /* Les 2 dernières cases prennent une colonne */
+    justify-self: center; /* Centre les 2 cases du bas horizontalement */
+}
 
 
 
