@@ -554,12 +554,11 @@ header nav .logo img {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur grand écran */
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
-
 
 
 
