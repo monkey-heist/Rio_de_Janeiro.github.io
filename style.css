@@ -560,18 +560,12 @@ header nav .logo img {
     margin: 0 auto;
 }
 
-.team-grid > :nth-child(4),
-.team-grid > :nth-child(5) {
-    grid-column: span 1; /* Chaque case occupe une colonne */
-}
-
-/* Centrer les éléments de la deuxième ligne */
 .team-grid > :nth-child(4) {
-    grid-column: 2 / 3; /* Place la 4e case au centre (milieu de la grille) */
+    grid-column: 1 / 2; /* Place la 4e case à gauche */
 }
 
 .team-grid > :nth-child(5) {
-    grid-column: 2 / 3; /* Place la 5e case au centre (milieu de la grille) */
+    grid-column: 3 / 4; /* Place la 5e case à droite */
 }
 
 
