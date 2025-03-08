@@ -557,7 +557,7 @@ header nav .logo img {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur grand écran */
     gap: 20px;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -565,7 +565,7 @@ header nav .logo img {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 3 colonnes sur grand écran */
     gap: 20px;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
