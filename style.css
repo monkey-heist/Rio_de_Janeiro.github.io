@@ -561,6 +561,14 @@ header nav .logo img {
     margin: 0 auto;
 }
 
+.team-grid2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 colonnes sur grand écran */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 /* Case de chaque membre de l'équipe */
 .team-member {
     border-radius: 10px;
