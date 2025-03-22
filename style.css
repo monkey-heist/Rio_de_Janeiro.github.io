@@ -1,231 +1,182 @@
-/* Thème général */
-body {
+:root
+{
+    --box-color : #DBD9D1;
+    --sec-color: #4291c2;
+}
+
+::-webkit-scrollbar {
+    width: 10px; 
+    height: 10px; 
+}
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2); 
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--box-color); 
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.5); 
+}
+::-webkit-scrollbar-button {
+    background: transparent;
+    border: none;
+    display: none; 
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+
+body 
+{
     font-family: 'Bebas Neue', sans-serif;
-    color: #000000; /* Noir profond */
-    background-color: #000000; /* grsi clair */
+    color: #222222; 
+    background-color: #F2F0EF; 
     margin: 0;
     padding: 0;
     user-select: none;
-    
+} 
+
+html 
+{
+    scroll-behavior: smooth; 
 }
 
- /* Classe pour afficher la section lors du défilement */
 .fadeInOnScroll {
-    opacity: 0; /* Départ invisible */
-    transform: translateY(50px); /* Déplacement vers le bas au départ */
-    transition: opacity 1s ease-out, transform 1s ease-out; /* Animation fluide */
+    opacity: 0; 
+    transform: translateY(50px); 
+    transition: opacity 1s ease-out, transform 1s ease-out; 
 }
-
 .fadeInOnScroll.visible {
-    opacity: 1; /* Devient visible */
-    transform: translateY(0); /* Reviens à la position d'origine */
+    opacity: 1; 
+    transform: translateY(0); 
 }
 
-
-
-html {
-    scroll-behavior: smooth; /* Cette propriété active le défilement fluide */
-}
-
-/* Barre de navigation futuriste avec formes cylindriques */
-/* Barre de navigation futuriste avec formes cylindriques */
 .navbar {
     background-color: transparent;
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 10px 20px; /* Réduction du padding sur petits écrans */
+    padding: 10px 20px; 
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
     box-sizing: border-box;
 }
-
 .navbar-logo {
-    font-size: 20px; /* Réduction de la taille pour les petits écrans */
+    font-size: 20px; 
     font-weight: bold;
-    color: #00ffcc;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
 header nav .logo img {
     height: auto;
-    width: 35px; /* Logo plus petit */
+    width: 35px; 
     transition: transform 0.3s ease;
 }
-
 .navbar ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
     display: flex;
-    gap: 15px; /* Espacement réduit entre les liens */
+    gap: 15px; 
 }
-
 .navbar ul li a {
     text-decoration: none;
     color: #ffffff;
     font-weight: 500;
-    font-size: 16px; /* Texte plus petit */
+    font-size: 20px; 
     padding: 8px 16px;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 50px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
 .navbar ul li a:hover {
-    background-color: #00ffcc;
-    color: #1a1a1a;
+    background-color: var(--box-color);
+    color: #000000;
     transform: translateY(-3px);
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .navbar ul {
-        flex-direction: column; /* Navigation verticale */
-        align-items: center;
-        display: none; /* Masquer par défaut */
-        background-color: rgba(0, 0, 0, 0.8); /* Arrière-plan pour le menu déroulant */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 10px 0;
-        gap: 10px; /* Espacement vertical entre les éléments */
-    }
 
-    .navbar ul.active {
-        display: flex; /* Afficher le menu déroulant quand actif */
-    }
-
-    .navbar ul li a {
-        padding: 10px 20px;
-        font-size: 18px; /* Légèrement plus grand pour un menu vertical */
-    }
+#scroll-progress 
+{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 16px;
+    z-index: 10;
 }
+  
 
-@media (max-width: 480px) {
-    .navbar-logo {
-        font-size: 18px; /* Réduction de la taille du logo */
-    }
-
-    header nav .logo img {
-        width: 30px; /* Logo encore plus petit */
-    }
-}
-
-/* Menu hamburger */
 .menu-toggle {
-    display: none; /* Masquer le menu toggle sur les grands écrans */
+    display: none; 
     cursor: pointer;
     font-size: 24px;
-    color: #00ffcc;
-}
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block; /* Afficher le menu toggle sur petits écrans */
-    }
+    color: var(--box-color);
 }
 
 
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: row-reverse; /* Place le logo à droite */
-    }
-
-    .navbar-logo {
-        font-size: 16px; /* Réduction de la taille du texte du logo */
-    }
-
-    header nav .logo img {
-        width: 25px; /* Réduction de la taille du logo */
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar-logo {
-        font-size: 14px; /* Taille encore plus petite pour le texte du logo */
-    }
-
-    header nav .logo img {
-        width: 20px; /* Taille encore plus réduite pour le logo */
-    }
-}
-
-
-/* Bannière principale */
 .banner {
     position: relative;
     width: 100%;
-    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    height: 100vh; 
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #fff; /* Texte clair pour un meilleur contraste */
+    color: #222222; 
     overflow: hidden;
-    background: none; /* Aucun fond coloré puisque la vidéo est en fond */
-    margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
-
+    background: none; 
+    margin-bottom: 50px; 
+    z-index: 1;
 }
-
-/* Vidéo de fond */
 .banner video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Permet de couvrir toute la zone */
-    z-index: 0; /* La vidéo reste en arrière-plan */
-    filter: blur(5px); /* Flou léger pour rendre le texte plus lisible */
+    object-fit: cover; 
+    z-index: 0; 
+    filter: blur(5px); 
+    z-index: 1;
 }
-
-/* Overlay futuriste */
 .banner .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Couche sombre semi-transparente */
+    background: rgba(0, 0, 0, 0.5); 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 1;
-    backdrop-filter: blur(5px); /* Flou de fond derrière l'overlay */
-    box-shadow: inset 0 0 50px rgba(0, 255, 255, 0.1); /* Légère lueur pour un effet technologique */
+    backdrop-filter: blur(5px); 
+    box-shadow: inset 0 0 50px rgba(0, 255, 255, 0.1); 
 }
-
-/* Style du titre */
 .banner h1 {
-    font-size: 5rem; /* Augmenter la taille pour un effet plus imposant */
+    font-size: 5rem; 
     font-weight: bold;
     margin: 0;
     z-index: 2;
-    color: #000000; /* Couleur néon futuriste */
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Lueur néon autour du texte */
-    animation: fadeInUp 1.5s ease-out; /* Animation d'apparition fluide */
+    color: #222222; 
+    text-shadow: 0 0 15px var(--box-color); 
+    animation: fadeInUp 1.5s ease-out; 
 }
-
-/* Style du texte descriptif */
 .banner p {
     font-size: 1.8rem;
     margin: 1rem 0;
     z-index: 2;
-    color: #e0e0e0; /* Couleur gris clair pour contraster */
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    animation: fadeInUp 2s ease-out; /* Animation d'apparition fluide avec délai */
+    color: var(--box-color); 
+    animation: fadeInUp 0.3s ease-out; 
 }
-
-
-
-
-/* Animation de fade-in pour les éléments */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -239,79 +190,63 @@ header nav .logo img {
 
 
 
-/* Section About Monkey Heist */
+
 .about-section {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
-    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);    max-width: 1000px; /* Limite la largeur du texte */
-    margin: 0 auto; /* Centre le texte */
+    background: var(--box-color); 
+    max-width: 1000px; 
+    margin: 0 auto; 
     padding: 40px;
-    border-radius: 20px; /* Arrondi plus prononcé pour un style moderne */
+    border-radius: 20px; 
     margin-bottom: 40px;
-    text-align: center; /* Centrer tout le contenu */
-    overflow: hidden; /* Empêcher les débordements */
-    position: relative; /* Nécessaire pour les effets */
+    text-align: center; 
+    overflow: hidden; 
+    position: relative; 
 }
-
-
-
-/* Titre de la section */
 .about-section h2 {
-    color: #000000; /* Couleur néon futuriste */
+    color: #222222; 
     font-size: 2.5rem;
     margin-bottom: 20px;
+    margin: 10px;
     z-index: 1;
-    position: relative; /* Nécessaire pour être au-dessus de l'effet */
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Lueur autour du texte */
+    position: relative; 
     font-weight: bold;
-    animation: fadeIn 1.5s ease-out; /* Apparition fluide */
+    animation: fadeIn 1.5s ease-out; 
 }
-
-/* Texte de la section */
 .about-section p {
-    color: #ffffff; /* Gris clair pour un contraste futuriste */
+    color: #222222; 
     font-size: 1.2rem;
     line-height: 1.8;
     text-align: justify;
     z-index: 1;
     position: relative;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3); /* Lueur légère autour du texte */
-    animation: fadeIn 2s ease-out; /* Apparition fluide avec délai */
-}
-
-/* Effet survol */
-.about-section:hover {
-    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4), inset 0 0 50px rgba(0, 255, 255, 0.2); /* Accentuation de l'ombre */
+    animation: fadeIn 2s ease-out; 
 }
 
 
-/* Section Features */
+
+
+
 .features-section {
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.2), inset 0 0 30px rgba(0, 255, 255, 0.1);
     text-align: center;
     overflow: hidden;
     position: relative;
-    max-width: 1000px; /* Limite la largeur du texte */
-    margin: 0 auto; /* Centre le texte */
-    margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
-
+    max-width: 1000px; 
+    margin: 0 auto; 
+    margin-bottom: 50px; 
+    background: var(--box-color); 
 }
-
-/* Titre de la section */
 .features-section h2 {
-    color: #000000; /* Couleur néon futuriste */
+    color: #222222; 
     font-size: 2.5rem;
     margin-bottom: 20px;
+    margin: 10px;
     z-index: 1;
     position: relative;
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
     font-weight: bold;
     animation: fadeIn 1.5s ease-out;
 }
-
-/* Conteneur des features */
 .features {
     display: flex;
     justify-content: space-between;
@@ -320,360 +255,354 @@ header nav .logo img {
     z-index: 1;
     position: relative;
 }
-
-/* Style individuel des features */
 .feature {
     flex: 1;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
-    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3); 
+    background: var(--sec-color); 
     padding: 20px;
     border-radius: 15px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px  #222222;
 }
-
-/* Titre des features */
 .feature h3 {
-    color: #000000; /* Couleur néon */
+    color: #222222; 
     font-size: 1.8rem;
     margin-bottom: 10px;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
-
-/* Texte des features */
 .feature p {
-    color: #e0e0e0; /* Gris clair pour un contraste futuriste */
+    color: #222222; 
     font-size: 1rem;
     line-height: 1.5;
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
 }
-
-/* Effet au survol */
 .feature:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.5), inset 0 0 25px rgba(0, 255, 255, 0.2);
+    box-shadow: 0 8px 20px #222222;
 }
 
 
-
-
-
-/* Styles généraux pour la page de téléchargement */
-.content {
-    padding: 50px auto;
-    padding-top: 100px; /* Espace pour éviter le chevauchement avec la navbar */
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
-    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 1000px; /* Limite la largeur du texte */
-    margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
-
-}
-
-/* Effet lumineux pour le fond */
-.content::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent 60%);
-    animation: rotateGlow 10s linear infinite;
-    z-index: 0;
-}
-
-/* Bouton de téléchargement pleine largeur */
 .download-button {
     width: 100%;
     text-align: center;
     margin-bottom: 30px;
     position: relative;
     z-index: 1;
-    
 }
-
 .download-button button {
-    width: 100%; /* Prend toute la largeur */
-    max-width: 700px; /* Largeur maximale pour un rendu élégant */
+    width: 100%; 
+    max-width: 700px; 
     padding: 20px 40px;
     font-size: 2.5rem;
     font-weight: bold;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 255, 255, 0.4)); /* Effet dégradé lumineux */
-    color: #000000; /* Texte futuriste */
-    border: 2px solid rgba(0, 255, 255, 0.5);
+    background: var(--box-color); 
+    color: #222222; 
     cursor: pointer;
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    box-shadow: 0 8px 15px rgba(0, 255, 255, 0.3);
 }
-
 .download-button button:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.7);
+}
+/* Section de téléchargement */
+.download-section {
+    text-align: center;
+}
+
+.download-button {
+    margin-top: 20px;
+}
+/* Style du canvas pour les feux d'artifice */
+#fireworksCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;  /* Empêche l'interaction avec le canvas */
+    z-index: 9999;
+    display: none;  /* Par défaut, le canvas est caché */
+}
+button {
+    background-color: #ff4d4d;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 
 
 
+/* banane */
+.background-image {
+    position: fixed;
+    top: -300px;
+    left: 50px;
+    width: 100%;
+    height: 100vh;
+    background: url('fruit.png') ;
+    z-index: -1;
+    opacity: 0; 
+    transition: opacity 0.4s ease-in-out;
+}
+.background-visible {
+    opacity: 1;
+}
 
 
-
-
-
-/* Styles pour la section story */
 .story {
-    max-width: 1000px; /* Limite la largeur du texte */
-    margin: 0 auto; /* Centre le texte */
-    padding: 40px;
-    border-radius: 20px; /* Arrondi plus prononcé pour un style moderne */
-    margin-bottom: 40px;
-    text-align: center; /* Centrer tout le contenu */
-    overflow: hidden; /* Empêcher les débordements */
-    position: relative; /* Nécessaire pour les effets */
-
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
-    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);
-}
-
-/* En-tête principal */
-.story h2 {
-    color: #000000; /* Couleur néon futuriste */
-    font-size: 4rem;
-    margin-bottom: 20px;
-    z-index: 1;
-    position: relative; /* Nécessaire pour être au-dessus de l'effet */
-    text-shadow: 0 0 20px rgba(0, 255, 255, 0.7); /* Lueur autour du texte */
-    font-weight: bold;
-    animation: fadeIn 1.5s ease-out; /* Apparition fluide */
-}
-
-/* Sous-titres */
-.story h3 {
-    font-size: 28px;
-    color: #000000; /* Couleur néon */
-    margin-top: 30px;
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
     position: relative;
-    z-index: 1;
+    overflow: hidden;
+    background: var(--box-color);
+    color: rgb(0, 0, 0);
+    font-family: "Poppins", sans-serif;
+    padding: 0px;
+    margin-bottom: 50px;
+     z-index: 1;
 }
-
-/* Paragraphes */
+.story .intro
+ {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #B3E5FC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+    transition: opacity 3s ease-out, transform 3s ease-out;
+    will-change: opacity, transform;
+}
+.story .intro h2 {
+    font-size: 6rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    transition: opacity 3s ease-in-out;
+}
+.story .intro.fade-out {
+    opacity: 0;
+    transform: translateY(-50px);
+    pointer-events: none;
+}
+.story section {
+    max-width: 70%;
+    margin: 50px auto;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 3s ease-out, transform 3s ease-out;
+    will-change: opacity, transform;
+    background: var(--sec-color);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
+}
+.story section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.story h3 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+    margin: 10px;
+}
 .story p {
-    color: #ffffff; /* Gris clair pour un contraste futuriste */
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     line-height: 1.8;
     text-align: justify;
-    z-index: 1;
-    position: relative;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3); /* Lueur légère autour du texte */
-    animation: fadeIn 2s ease-out; /* Apparition fluide avec délai */
-}
-
-/* Liste des clans */
-.story ul.clans {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-/* Items de la liste */
-.story ul.clans li {
-    margin: 10px 0;
-    font-size: 18px;
-    color: #ffffff; /* Texte néon mis en valeur */
-
 }
 
 
-
-/* Texte final */
-.story .finale {
-    text-align: center;
-    font-size: 22px;
-    margin-top: 30px;
-    color: #000000;
-    text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+.swiper {
+    width: 50%;
+    max-width: 500px;
+    height: 500px; 
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-/* Images */
-.story img {
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.swiper-slide img {
     width: 100%;
     height: auto;
-    border-radius: 20px; /* Arrondi plus prononcé pour un style moderne */
+    border-radius: 10px;
+    object-fit: cover;
+}
+.swiper-button-next, .swiper-button-prev {
+    color: var(--sec-color);
+}
+.swiper-pagination-bullet {
+    background: white;
+}
+.info-bubble {
+    position: fixed;
+    right: 200px;
+    bottom: 500px;
+    background-color: var(--sec-color);
+    color: #000000;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out;
+}
+.swiper:hover + .info-bubble {
+    opacity: 1;
+}
 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+
+
+.team-section {
+    max-width: 1000px; 
+    margin: 10px auto; 
+    padding: 40px;
+    border-radius: 20px; 
+    margin-bottom: 40px;
+    text-align: center; 
+    overflow: hidden; 
+    position: relative; 
+    margin-bottom: 50px; 
+    background: var(--box-color); 
     z-index: 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-/* Section Équipe */
-.team-section {
-    max-width: 1000px; /* Limite la largeur du texte */
-    margin: 0 auto; /* Centre le texte */
-    padding: 40px;
-    border-radius: 20px; /* Arrondi plus prononcé pour un style moderne */
-    margin-bottom: 40px;
-    text-align: center; /* Centrer tout le contenu */
-    overflow: hidden; /* Empêcher les débordements */
-    position: relative; /* Nécessaire pour les effets */
-    margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
-
-
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
-    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);
-}
-
 .team-section h2 {
-    color: #000000; /* Couleur néon futuriste */
+    color: #000000; 
     font-size: 4rem;
     margin-bottom: 20px;
     z-index: 1;
-    position: relative; /* Nécessaire pour être au-dessus de l'effet */
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Lueur autour du texte */
+    position: relative; 
     font-weight: bold;
-    animation: fadeIn 1.5s ease-out; /* Apparition fluide */
-
+    animation: fadeIn 1.5s ease-out; 
+    margin: 10px;
 }
-
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur grand écran */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
-
-
-
-/* Case de chaque membre de l'équipe */
+.team-gride {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
 .team-member {
     border-radius: 10px;
     overflow: hidden;
-
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
-    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);
+    background: var(--sec-color); 
+    box-shadow: 0 8px 20px #000000;
     transition: transform 0.3s ease;
 }
-
 .team-member:hover {
-    transform: scale(1.05); /* Effet d'agrandissement au survol */
+    transform: scale(1.05);
 }
-
-/* Image du membre */
 .team-member img {
     width: 70%;
     height: 250px;
     object-fit: cover;
-    /*border: 3px solid #1a1a1a; /* Bordure noir */
-
-
-    
 }
-
-/* Zone de texte avec nom et rôle */
-
-/* Icône de mail à droite du nom */
 .team-info {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    
     padding: 20px;
-    background-color: #000000; /* Marron foncé */
+    background-color: #000000; 
     color: #fff;
-    
 }
-
 
 .email-icon {
-    width: 20px;  /* Ajuste la largeur de l'icône */
-    height: 20px; /* Ajuste la hauteur de l'icône */
-    margin-left: 10px; /* Ajuste l'espacement entre le nom et l'icône */
+    width: 20px;  
+    height: 20px; 
+    margin-left: 10px; 
     cursor: pointer;
 }
-
-
 
 .team-info h3 {
     font-size: 20px;
     margin: 0;
 }
-
-
-
-
-
-
-
-
-
-/* Texte superposé */
 .overlay {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    font-size: 18px; /* Ajuste la taille du texte */
+    color: rgb(167, 167, 167);
+    font-size: 18px; 
     font-weight: bold;
     text-align: center;
-    opacity: 0; /* Masque le texte par défaut */
+    opacity: 0; 
     transition: opacity 0.3s ease;
-    pointer-events: none; /* Empêche le texte d'être sélectionné ou cliquable */
+    pointer-events: none; 
 }
-
-/* Effet de survol */
 .image-container:hover img {
-    transform: scale(1.1); /* Zoom de l'image */
-    filter: brightness(0.5); /* Noircissement */
+    transform: scale(1.1); 
+    filter: brightness(0.5); 
 }
-
 .image-container:hover .overlay {
-    opacity: 1; /* Affiche le texte */
+    opacity: 1; 
+}
+
+/* ptt singe */
+.container {
+    position: relative;
+    width: 500px; 
+    margin: -20px auto ;
+}
+.monkey {
+    position: absolute;
+    right: -220px; 
+    top: 30%;
+    transform: translateY(-50%) rotate(0deg);
+    width: 100px;
+    opacity: 0; 
+    transition: all 1s ease-out;
+}
+.speech-bubble {
+    position: absolute;
+    left:850px; 
+    top: 30%;
+    background-color: var(--box-color);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0; 
+    transition: opacity 0.5s ease-out 0.5s; 
 }
 
 
 
-
-/* Titre de la section Chronologie */
 .timeline-section {
-    background-color: #000000;
-    color: white;
+    color: #222222;
     text-align: center;
-    font-family: 'Arial', sans-serif;
-
-
-    margin-top: 0;  /* Annule l'espacement au-dessus du contenu */
-    margin-bottom: 0;  /* Annule l'espacement en dessous du contenu */
-    padding-top: 0;  /* Annule l'espacement interne en haut */
-    padding-bottom: 0;  /* Annule l'espacement interne en bas */
+    margin: 0;
+    padding: 20px 0;
+    z-index: 1;
 }
 .timeline-section h2 {
     font-size: 2.5rem;
-    text-align: center;
     margin-bottom: 20px;
-    padding-top: 20px;
-    color: #000000;
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
-
+    color: #222222;
+    z-index: 1;
 }
 .timeline {
     list-style: none;
@@ -681,13 +610,8 @@ header nav .logo img {
     position: relative;
     max-width: 800px;
     margin: auto;
-
-    margin-top: 0;  /* Annule l'espacement au-dessus du contenu */
-    margin-bottom: 0;  /* Annule l'espacement en dessous du contenu */
-    padding-top: 0;  /* Annule l'espacement interne en haut */
-    padding-bottom: 0;  /* Annule l'espacement interne en bas */
+    z-index: 1;
 }
-
 .timeline::before {
     content: '';
     position: absolute;
@@ -695,80 +619,66 @@ header nav .logo img {
     left: 50%;
     width: 4px;
     height: 100%;
-    background: linear-gradient(to bottom, #00eaff, #00eaff);
+    background: linear-gradient(to bottom, var(--box-color), var(--box-color));
     transform: translateX(-50%);
 }
 
-/* Éléments de la timeline */
 .event {
     position: relative;
     margin: 30px 0;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    opacity: 0;  
+    transform: translateY(50px); 
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
-.event:hover {
-    transform: scale(1.05);
+.event.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .circle {
     width: 20px;
     height: 20px;
-    background: #00eaff;
+    background: var(--box-color);
     border-radius: 50%;
     position: absolute;
     left: 50%;
+    top: 0;
     transform: translateX(-50%);
-    border: 4px solid #00eaff;
-    box-shadow: 0 0 10px #00eaff;
+    box-shadow: 0 0 10px var(--box-color);
 }
-
-.content {
-    background: rgba(0, 0, 0, 0.8);
+.contente {
+    background: var(--box-color);
     padding: 20px;
     border-radius: 8px;
-    border-left: 4px solid #00eaff;
-    box-shadow: 0px 0px 10px rgba(0, 234, 255, 0.5);
     width: 45%;
     position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-.event:nth-child(odd) .content {
-    left: 5%;
+.event:nth-child(odd) .contente {
+    left: -5%;
     text-align: left;
 }
-
-.event:nth-child(even) .content {
-    left: 50%;
+.event:nth-child(even) .contente {
+    left: 55%;
     text-align: left;
 }
-
 .timeline-section h3 {
-    color: #00eaff;
+    color: #222222;
     font-size: 20px;
     margin-bottom: 10px;
 }
-
-p {
-    font-size: 14px;
-    line-height: 1.6;
-
-    
+.contente img {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
-.arrow-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: -25px;
-    font-size: 24px;
-    color: #00eaff;
-    animation: glow 1.5s infinite alternate;
-}
-
-@keyframes glow {
-    0% { text-shadow: 0 0 5px #00eaff; }
-    100% { text-shadow: 0 0 15px #00eaff; }
+.zone-carte {
+    background-image: url('figure4.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;  
+    transition: background-size 0.3s ease-out; 
 }
 
 
@@ -776,173 +686,129 @@ p {
 
 
 
-
-
-/* Section Issues */
 .issues-section {
     padding: 3rem;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
-    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);
-    border-radius: 20px;
+    background-color: var(--box-color); 
     text-align: center;
-    color: #fff;
+    color: #222222;
     position: relative;
-    max-width: 980px; /* Limite la largeur du texte */
-    margin: 0 auto; /* Centre le texte */
-    margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
-
-
+    margin-bottom: 50px;
+    z-index: 1;
 }
-/* Conteneur des issues */
 .issues-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
     gap: 2rem;
     z-index: 1;
     position: relative;
-
 }
-/* Titre de la section */
 .issues-section h2 {
     font-size: 2.5rem;
-    color: #000000; /* Néon futuriste */
-    text-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.3);
-    margin-bottom: 2rem;
+    color: #222222;
     text-align: center;
     font-weight: bold;
-    
-}
+    padding: 10px ;
 
-/* Issue individuelle */
+}
 .issue {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
+    background: var(--sec-color);
     border-radius: 12px;
     padding: 1.5rem;
-    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.1), inset 0 0 20px rgba(0, 255, 255, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-
+    box-shadow: 0 4px 10px #222222;
 }
-
-/* Titre des issues */
 .issue h3 {
     margin-bottom: 1rem;
     font-size: 1.5rem;
-    color: #000000; /* Néon futuriste */
-    text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    color: #000000;
 }
-
-/* Texte des issues */
 .issue p {
     font-size: 1.1rem;
-    color: #e0e0e0; /* Gris clair */
+    color: #000000;
     line-height: 1.6;
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
-    
 }
-
-/* Effet de survol */
 .issue:hover {
     transform: translateY(-10px);
-    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.5), inset 0 0 25px rgba(0, 255, 255, 0.3);
-    border-color: #00ffcc; /* Bordure néon */
-    
+    box-shadow: 0 8px 20px #222222;
 }
 
 
 
 
-
-
-
-
-/* Section Ressources */
 .resources-section {
     padding: 60px 30px;
     text-align: center;
     box-shadow:  rgba(0, 0, 0, 0.8);
     border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2), inset 0 0 30px rgba(0, 255, 255, 0.1);
     position: relative;
-    max-width: 1015px; /* Limite la largeur du texte */
-    margin: 0 auto; /* Centre le texte */
-    margin-bottom: 50px; /* Espacement pour éviter le chevauchement avec la section suivante */
-
-    
-    
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 255, 255, 0.1)); /* Dégradé futuriste */
-
+    max-width: 1015px; 
+    margin: 0 auto; 
+    margin-bottom: 50px; 
+    background: var(--box-color); 
 }
-
-/* Titre de la section */
 .resources-section h2 {
-    color: #000000; /* Couleur néon futuriste */
+    color: #000000; 
     font-size: 4rem;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     z-index: 1;
     position: relative;
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
     font-weight: bold;
     padding-top: 10px;
     animation: fadeIn 1.5s ease-out;
+    margin: 1px;
 }
 
-/* Section Rapports */
-.reports-section h3 {
+
+.reports-section h3 
+{
     font-size: 28px;
-    color: #000000; /* Couleur néon */
+    color: #000000; 
     margin-bottom: 30px;
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
 }
-
-.reports-grid {
+.reports-grid 
+{
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur grand écran */
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
     z-index: 1;
     position: relative;
 }
-
-.report-item {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 255, 255, 0.2));
+.report-item 
+{
+    background: var(--sec-color);
     padding: 25px;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2), inset 0 0 15px rgba(0, 255, 255, 0.1);
+    border: 2px solid #222222;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .report-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.5), inset 0 0 30px rgba(0, 255, 255, 0.2);
+    transform: translateY(-10px);
+    border-color: #222222;
 }
-
-.report-item img {
+.report-item img {  
     width: 50px;
     height: 50px;
     object-fit: contain;
     margin-bottom: 10px;
 }
-
 .report-item p {
     font-size: 16px;
-    color: #e0e0e0; /* Gris clair */
+    color: #222222; 
 }
 
-/* Section caractéristiques */
+
 .characteristics-section h3 {
     font-size: 28px;
     color: #000000;
     margin-bottom: 30px;
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
 }
-
 .characteristics-section {
     margin-top: 50px;
     text-align: center;
 }
-
 .characteristics-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -951,135 +817,91 @@ p {
     z-index: 1;
     position: relative;
 }
-
 .characteristic-item {
     text-align: center;
     padding: 15px;
-    border: 2px solid rgba(0, 255, 255, 0.4);
+    border: 2px solid #222222;
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    background: var(--sec-color);
 }
-
 .characteristic-item img {
     width: 100px;
     height: 100px;
     object-fit: contain;
     margin-bottom: 10px;
 }
-
 .characteristic-item a {
     text-decoration: none;
     color: inherit;
 }
-
 .characteristic-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 15px rgba(0, 255, 255, 0.2);
-    border-color: #00ffcc; /* Couleur de l'encadrement au survol */
+    border-color: #222222; 
 }
-/* Section caractéristiques - Paragraphe */
 .characteristics-section p {
     font-size: 16px;
-    color: #ffffff; /* Marron foncé */
+    color: #222222; 
     margin-top: 10px;
     text-align: center;
-    line-height: 1.5; /* Espacement des lignes */
+    line-height: 1.5; 
 }
 
 
-
-/* Section Outils Utilisés */
 .tools-section h3 {
     font-size: 28px;
-    color: #000000;
     margin-bottom: 30px;
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
 }
-
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur grand écran */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
     z-index: 1;
     position: relative;
 }
-
 .tool-item {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 255, 255, 0.2));
+    background: var(--box-color);
     padding: 25px;
-    border-radius: 15px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2), inset 0 0 15px rgba(0, 255, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .tool-item img {
     width: 100px;
     height: 100px;
     object-fit: contain;
     margin-bottom: 10px;
 }
-
 .tool-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.5), inset 0 0 25px rgba(0, 255, 255, 0.2);
+    transform: scale(1.1);
+
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Pied de page futuriste, visible au bas de la page */
 footer {
-    background-color: #1a1a1a; /* Gris foncé pour correspondre à la navbar */
-    color: #e0e0e0; /* Gris clair pour un contraste modéré */
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: #ffffff; 
     text-align: center;
     padding: 10px 20px;
     font-size: 14px;
     position: fixed;
-    bottom: -80px; /* Initialement caché sous la page */
+    bottom: -80px; 
     left: 50%;
-    transform: translateX(-50%); /* Centré horizontalement */
-    width: 250px; /* Largeur réduite pour un aspect plus compact */
-    border-radius: 50px; /* Forme cylindrique */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre douce */
-    transition: bottom 0.4s ease, transform 0.4s ease; /* Transition douce */
+    transform: translateX(-50%); 
+    width: 250px; 
+    border-radius: 50px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); 
+    transition: bottom 0.4s ease, transform 0.4s ease; 
     z-index: 999;
 }
-
 footer.show {
-    bottom: 20px; /* Le footer devient visible lorsqu'on atteint le bas */
-    transform: translateX(-50%) scale(1); /* Effet de transition avec une légère montée */
+    bottom: 20px; 
+    transform: translateX(-50%) scale(1); 
 }
-
-footer a {
-    text-decoration: none;
-    color: #00ffcc; /* Vert néon futuriste */
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #e0e0e0; /* Gris clair au survol */
-}
-
-
 
 
 /* Responsiveness pour mobiles */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .navbar {
         flex-direction: column;
         align-items: flex-start;
@@ -1093,10 +915,7 @@ footer a:hover {
         text-align: center;
         width: 100%;
     }
-}
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
     .features {
         flex-direction: column;
         align-items: center;
@@ -1106,44 +925,29 @@ footer a:hover {
         margin: 10px 0;
         width: 90%;
     }
-}
-/* Responsiveness pour mobiles */
-@media (max-width: 768px) {
+
+
     footer {
         font-size: 12px;
-        width: 200px; /* Réduire la largeur pour les petits écrans */
+        width: 200px; 
     }
-}
 
-/* Responsivité : pour les petits écrans */
-@media (max-width: 768px) {
     .team-grid {
-        grid-template-columns: 1fr 1fr; /* 2 colonnes sur écran moyen */
+        grid-template-columns: 1fr 1fr; 
     }
-}
 
-@media (max-width: 480px) {
     .team-grid {
-        grid-template-columns: 1fr; /* 1 colonne sur mobile */
+        grid-template-columns: 1fr;
     }
-}
 
-/* Responsivité : pour les petits écrans */
-@media (max-width: 768px) {
     .reports-grid, .tools-grid {
-        grid-template-columns: 1fr 1fr; /* 2 colonnes sur écran moyen */
+        grid-template-columns: 1fr 1fr; 
     }
-}
 
-@media (max-width: 480px) {
     .reports-grid, .tools-grid {
-        grid-template-columns: 1fr; /* 1 colonne sur mobile */
+        grid-template-columns: 1fr; 
     }
-}
 
-
-/* Pour les petits écrans */
-@media screen and (max-width: 768px) {
     .download-section {
         flex-direction: column;
         align-items: center;
@@ -1153,39 +957,138 @@ footer a:hover {
         margin-left: 0;
         margin-top: 20px;
     }
+
+    .navbar ul {
+        flex-direction: column; 
+        align-items: center;
+        display: none; 
+        background-color: rgba(0, 0, 0, 0.8); 
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        gap: 10px; 
+    }
+
+    .navbar ul.active {
+        display: flex; 
+    }
+
+    .navbar ul li a {
+        padding: 10px 20px;
+        font-size: 18px; 
+    }
+
+    .navbar-logo {
+        font-size: 18px; 
+    }
+
+    header nav .logo img {
+        width: 30px; 
+    }
+
+    .menu-toggle {
+        display: block; 
+    }
+
+    .navbar {
+        flex-direction: row-reverse; 
+    }
+
+    .navbar-logo {
+        font-size: 16px; 
+    }
+
+    header nav .logo img {
+        width: 25px; 
+    }
+
+    .navbar-logo {
+        font-size: 14px; 
+    }
+
+    header nav .logo img {
+        width: 20px; 
+    }
+
+    .story h2 {
+        font-size: 4rem;
+    }
+    .story h3 {
+        font-size: 2.5rem;
+    }
+    .story p {
+        font-size: 1.4rem;
+    }
+
+    .timeline::before {
+        left: 10px;
+    }
+
+    .event .circle {
+        left: 10px;
+    }
+
+    .content {
+        width: 80%;
+        left: 20px !important;
+        text-align: left;
+    }
+
+    .issues-container {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-section {
+        padding: 10px 0;
+    }
+
+    .timeline-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .timeline {
+        max-width: 100%;
+        margin: 0 10px;
+    }
+
+    .timeline::before {
+        left: 20px;
+        width: 2px;
+    }
+
+    .event {
+        margin: 20px 0;
+    }
+
+    .circle {
+        width: 15px;
+        height: 15px;
+    }
+
+    .contente {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .event:nth-child(odd) .contente {
+        left: 0;
+        text-align: center;
+    }
+
+    .event:nth-child(even) .contente {
+        left: 0;
+        text-align: center;
+    }
+
+    .timeline-section h3 {
+        font-size: 18px;
+    }
+
+    .contente img {
+        width: 100%;
+        margin-top: 10px;
+    }
 }
-
-
-
-/* Personnalisation de la scrollbar */
-::-webkit-scrollbar {
-    width: 10px; /* Largeur de la scrollbar */
-    height: 10px; /* Hauteur de la scrollbar horizontale */
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2); /* Fond de la scrollbar */
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #00ffcc, #00b3b3); /* Dégradé pour la barre de défilement */
-    border-radius: 5px;
-    border: 2px solid rgba(0, 0, 0, 0.5); /* Bordure de la barre de défilement */
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #00b3b3, #00ffcc); /* Effet au survol */
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8); /* Ombre au survol */
-}
-
-::-webkit-scrollbar-button {
-    background: transparent;
-    border: none;
-    display: none; /* Cache les boutons de la scrollbar */
-}
-
-::-webkit-scrollbar-corner {
-    background: transparent;
-}
-
