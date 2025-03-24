@@ -332,6 +332,64 @@ button {
     transition: background-color 0.3s;
 }
 
+#manuel-utilisation {
+    background-color: var(--box-color); 
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+
+
+
+    border-radius: 20px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    max-width: 1000px; 
+    margin: 40px auto; 
+    
+  }
+  
+  #manuel-utilisation h2 {
+    color: #000000; 
+    font-size: 2.5rem;
+
+  }
+  
+  #manuel-utilisation p {
+    color: #000000; 
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  #manuel-utilisation a {
+    color: #000000;
+    background-color: var(--sec-color); 
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  
+  #manuel-utilisation a:hover {
+    transform: scale(1.05);
+  }
+  
+  .pdf-viewer {
+    background-color: var(--box-color); 
+    border: 2px solid ;
+    padding: 10px;
+    margin: 20px auto; 
+    border-radius: 5px;
+    width: 100%;
+    max-width: 800px; 
+  }
+  
+  .pdf-viewer iframe {
+    width: 100%;
+    height: 600px; 
+  }
+
+
 
 
 
