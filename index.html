@@ -89,6 +89,21 @@
     </div>
 </section>
 
+        <!-- Section manuel  -->
+
+<section id="manuel-utilisation" class="manuel-section">
+    <h2>User manual</h2>
+    <p>
+        You can download the manual by clicking on the following link :
+      <a href="manuel.pdf" download>Download the PDF</a>
+    </p>
+    <div class="pdf-viewer" style="border: 1px solid #ccc; padding: 10px;">
+      <iframe src="manuel.pdf" width="50%" height="600px">
+        Votre navigateur ne supporte pas l'affichage de PDF.
+      </iframe>
+    </div>
+  </section>
+  
 <!-- Conteneur pour les feux d'artifice -->
 <canvas id="fireworksCanvas"></canvas>
 
@@ -198,7 +213,7 @@
               prevEl: ".swiper-button-prev",
           },
           autoplay: {
-              delay: 4000, 
+              delay: 3000, 
              disableOnInteraction: false,
          },
          });
@@ -253,7 +268,7 @@
             <div class="team-member">
                 <div class="image-container">
                     <img src="chahine.png" alt="Membre 3">
-                    <div class="overlay">I'm passionate about programming and have developed several arithmetic projects in C. At Monkey Vault Studios? I'll be mainly responsible for gameplay.</div>
+                    <div class="overlay">I'm passionate about programming and have developed several arithmetic projects in C. At Monkey Vault Studios, I'll be mainly responsible for gameplay.</div>
                 </div>
                 <div class="team-info">
                     <h3>Nabi Chahine</h3>
@@ -640,13 +655,11 @@ window.addEventListener('scroll', function() {
         const canvas = document.getElementById("fireworksCanvas");
         const ctx = canvas.getContext("2d");
         const particles = [];
-        canvas.style.display = "block"; // Afficher le canvas
+        canvas.style.display = "block"; 
 
-        // Redimensionner le canvas pour qu'il couvre toute la page
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        // Fonction pour générer des particules
         function createFireworks(x, y) {
             for (let i = 0; i < 100; i++) {
                 particles.push({
@@ -661,7 +674,6 @@ window.addEventListener('scroll', function() {
             }
         }
 
-        // Fonction pour animer les particules
         function animateFireworks() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (let i = 0; i < particles.length; i++) {
@@ -683,11 +695,9 @@ window.addEventListener('scroll', function() {
             }
         }
 
-        // Déclencher les feux d'artifice à la position du clic
         createFireworks(window.innerWidth / 2, window.innerHeight / 2);
         animateFireworks();
 
-        // Masquer le canvas après 3 secondes
         setTimeout(() => {
             canvas.style.display = "none";
         }, 3000);
