@@ -1,709 +1,972 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rio de Janeiro </title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="logonew1.png">
-    <script src="https://cdn.jsdelivr.net/gh/catdad/canvas-fireworks@1.0.4/dist/canvas-fireworks.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rio de Janeiro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+* {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE/Edge */
+}
+ 
+::-webkit-scrollbar {
+    width: 10px; 
+    height: 10px; 
+}
+::-webkit-scrollbar-track {
+    background: #0F0F0F; 
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: #FFD700; 
+    border-radius: 5px;
+    border: 2px solid #0F0F0F; 
+}
+::-webkit-scrollbar-button {
+    background: transparent;
+    border: none;
+    display: none; 
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #0F0F0F;
+      color: #E0E0E0;
+      scroll-behavior: smooth;
+    }
 
+  header {
+  background-color: #0F0F0F;
+  border-bottom: 2px solid #FFD700;
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  z-index: 1000;
+  gap: 1rem; /* ajoute du gap entre logo et nav */
+}
+
+header .logo img {
+  height: auto;       /* ou 70px si tu veux plus gros */
+  max-height: 150px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+    nav a {
+      margin-right: 3rem;
+      color: #E0E0E0;
+      text-decoration: none;
+      font-weight: 1000;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+      
+    }
+
+    nav a:hover {
+      color: #FFD700;
+    }
+
+    .hero {
+      height: 100vh;
+      background: url(tempo.mp4) no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero > div {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: #FFD700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+
+    .hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: #FFD700;
+  font-family: 'Orbitron', sans-serif;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+
+    .btn {
+      background-color: #FFD700;
+      color: #0F0F0F;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
+      border: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #b49000;
+    }
+
+    .section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: #FFD700;
+      margin-bottom: 2rem;
+    }
+
+    .parallax-section {
+      background-attachment: fixed;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .card {
+      background-color: #1A1A1A;
+      padding: 1.5rem;
+      border: 1px solid #333;
+      transition: border-color 0.3s;
+    }
+
+    .card:hover {
+      border-color: #FFD700;
+    }
+
+    .card h3 {
+      color: #FFD700;
+    }
+    
+
+    .team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+    }
+.story-item {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  background-color: #1A1A1A;
+}
+
+.parallax-background {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.story-content {
+  position: relative;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1;
+  color: #E0E0E0;
+}
+
+.story-content h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  color: #FFD700;
+  margin-bottom: 1rem;
+}
+
+.story-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.story-item:hover .parallax-background {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .story-content {
+    padding: 2rem 1rem;
+  }
+
+  .story-content h3 {
+    font-size: 1.5rem;
+  }
+}
+
+
+.team-member {
+  background-color: #1A1A1A;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 220px;
+  text-align: center;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  border-color: #FFD700;
+}
+
+
+
+.team-member h3 {
+  color: #FFD700;
+  margin: 0.5rem 0 0.2rem;
+}
+
+.team-member p {
+  margin: 0;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.team-member {
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.team-member a {
+  display: inline-block;
+}
+
+.team-member {
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.team-email {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.team-email img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #FFD700;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-email img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #FFD700;
+}
+
+.contact-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: #FFD700;
+  color: #000;
+  font-weight: bold;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #FFD700;
+}
+
+
+
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 2rem 0;
+  transition: transform 1s ease-out, opacity 1s ease-out;
+  opacity: 0.3;
+}
+
+.timeline-item.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-date {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: #FFD700;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0F0F0F;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.timeline-content {
+  margin-left: 10%;
+  background-color: #1A1A1A;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: transform 0.5s;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: 0;
+  margin-right: 10%;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  margin-left: 10%;
+}
+
+.timeline-item.active .timeline-content {
+  transform: scale(1.05);
+}
+.timeline-bg {
+  position:absolute;
+  top: -50;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow:hidden;
+  pointer-events: none;
+}
+
+.timeline-bg img {
+  width: 100%;
+  height: auto;
+  transform: scale(1);
+  transition: transform 0.2s ease-out;
+  opacity: 0.1;
+  object-fit:contain;
+}
+
+
+.problem-card {
+  background-color: #1a1a1a;
+  border-left: 4px solid #FFD700;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: #e0e0e0;
+  box-shadow: 0 0 10px #71672d;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.problem-card:hover {
+  transform: translateY(-3px);
+}
+
+.problem-icon {
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.shadow-icon { background-image: url('icon-shadow.png'); }
+.maze-icon { background-image: url('icon-maze.png'); }
+.silence-icon { background-image: url('icon-silence.png'); }
+.flood-icon { background-image: url('icon-flood.png'); }
+
+.problem-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  color: #FFD700;
+  margin: 0;
+}
+
+.parallax-money {
+  position: absolute;
+  top: -50;
+  height: 10%;
+  z-index: -1;
+  pointer-events: none;
+  animation: float 20s ease-in-out infinite;
+}
+
+.left-money {
+  left: -17rem;
+  height: 20%;
+}
+
+.right-money {
+  right: -17rem;
+  height: 20%;
+
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+.subsection {
+  margin-bottom: 3rem;
+}
+
+.resource-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.resource-list.three-column {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.resource-list a {
+  text-decoration: none;
+  color: #FFD700;
+  background-color: #1A1A1A;
+  padding: 0.75rem 1rem;
+  display: block;
+  border: 1px solid #333;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.resource-list a:hover {
+  background-color: #333;
+}
+.resource-list.grid-2x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+
+
+    footer {
+      background-color: #0F0F0F;
+      border-top: 2px solid #FFD700;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    #scroll-progress {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  background-color: #0F0F0F;
+  color: #FFD700;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+  </style>
 </head>
 <body>
-
-    <div id="scroll-progress" class="progress-bar">0%</div>
-
-
-
-    <!-- Barre de navigation -->
-    <nav class="navbar">
-        <div class="navbar-logo">
-            <img src="logonew1.png" alt="Monkey Heist Logo" class="logo-image" style="width: 100px; height: auto; max-height: 80px;">
-        </div>
-            <div class="menu-toggle">☰</div>
-
-        <ul>
-            <li><a href="#accueil" class="active">Home</a></li>
-            <li><a href="#download">Download</a></li>
-            <li><a href="#Histoire">Story</a></li>
-            <li><a href="#à propos de nous">About us</a></li>
-            <li><a href="#sourcess">Resources</a></li>
-        </ul>
-    </nav>
-
-    <!-- 1er page avec vidéo -->
-    <header id="accueil" class="banner">
-        <video autoplay muted loop>
-            <source src="tr tempo.mp4" type="video/mp4">
-            Ton navigateur ne supporte pas la vidéo.
-        </video>
-            <h1>Rio De Janeiro</h1>
-            <p>Fight it out and become the king of heist in a 1v1 arena!</p>
-
-    </header>
-
-
-    <!-- 2eme partie (about, feature et telecharger) -->
-
-    <div class="sections-container">
-        <div class="background-image"></div>
-
-         <!-- Section About Monkey Heist -->
-        <section id="about" class="about-section fadeInOnScroll">
-            <h2>About Rio De Janeiro</h2>
-            <p>
-            Rio De Janeiro is a unique video game where monkeys face off in exciting 1vs1 battles. 
-            Mixing strategy, action and humour, this game immerses you in an intense universe where every decision counts. 
-            Get ready for realistic graphics and captivating gameplay!
-            </p>
-        </section>
-        <!-- Section Features -->
-        <section id="features" class="features-section fadeInOnScroll">
-            <h2>Features</h2>
-            <div class="features">
-                <div class="feature">
-                    <h3>Realistic graphics</h3>
-                 <p>Breathtaking visuals that immerse you in the world of the arena.</p>
-                </div>
-                <div class="feature">
-                    <h3>Multiplayer mode</h3>
-                    <p>Battle your friends or players from all over the world online.</p>
-                 </div>
-                <div class="feature">
-                    <h3>Choice of weapons</h3>
-                    <p>Customise your strategy with a vast choice of unique weapons, adapted to each style of play.</p>
-                </div>
-            </div>
-        </section>
-
-
-<!-- Section de téléchargement -->
-<section id="download" class="download-section fadeInOnScroll">
-    <div class="download-info">
-        <div class="download-button">
-            <a href="ToShip.rar" download>
-                <button onclick="triggerFireworks()">Download now</button>
-            </a>
-        </div>
+  <header>
+    <div class="logo">
+      <img src="logoentreprise.png" alt="Logo Entreprise">
     </div>
-</section>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#story">Story</a>
+      <a href="#download">Download</a>    
+      <a href="#resources">Resources</a>
 
-        <!-- Section manuel  -->
+    </nav>
+  </header>
 
-<section id="manuel-utilisation" class="manuel-section">
-    <h2>User manual</h2>
-    <p>
-        You can download the manual by clicking on the following link :
-      <a href="manuel.pdf" download>Download the PDF</a>
-    </p>
-    <div class="pdf-viewer" style="border: 1px solid #ccc; padding: 10px;">
-      <iframe src="manuel.pdf" width="50%" height="600px">
-        Votre navigateur ne supporte pas l'affichage de PDF.
-      </iframe>
+  <section id="home" class="hero">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="tempo.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la lecture de vidéos HTML5.
+    </video>
+    <div class="hero-content">
+      <h1>Welcome at Rio de Janeiro</h1>
+      <p>Fight it out and become the king of heist  in a 1v1 arena!</p>
+      <a href="#download"><button class="btn">Download</button></a>
     </div>
   </section>
   
-<!-- Conteneur pour les feux d'artifice -->
-<canvas id="fireworksCanvas"></canvas>
 
-    </section>
+  <section id="about" class="section parallax-section" style="background-image: url(figure6.png);">
+    <h2>About</h2>
+    <p>            Rio De Janeiro is a unique video game where monkeys face off in exciting 1vs1 battles. 
+        Mixing strategy, action and humour, this game immerses you in an intense universe where every decision counts. 
+        Get ready for realistic graphics and captivating gameplay!</p>
+  </section>
+
+  <section id="features" class="section parallax-section" style="background-image: url(figure7.png);">
+    <h2>Features</h2>
+    <ul>
+      <li>Breathtaking visuals that immerse you in the world of the arena.</li>
+      <li>Battle your friends or players from all over the world online.</li>
+      <li>Customise your strategy with a vast choice of unique weapons, adapted to each style of play.</li>
+    </ul>
+  </section>
+  <section id="story" class="section">
+    <h2>Story</h2>
+    
+    <!-- Contexte initial -->
+    <div class="story-item">
+      <div class="parallax-background" style="background-image: url(figure1.png);"></div>
+      <div class="story-content">
+        <h3>The story of Rio De Janeiro</h3>
+        <p>
+          In a world where jungles can no longer satisfy the monkeys' thirst for glory and riches, a new tradition was born:
+          <strong>the Heist Arena</strong>. Here, the cleverest, fastest, and boldest monkeys face off in epic matches for supremacy.
+          The ultimate prize? The legendary <strong>Golden Banana</strong>, a symbol of power and domination.
+          </p>
+          <p>
+          The battles take place in a one-of-a-kind arena, a <strong>monumental stadium</strong> built in the heart of the jungle, 
+          where thousands of roaring spectators cheer on their champions. Each match pits <strong>two monkeys</strong> against each other, 
+          dressed in impeccable suits reminiscent of legendary movie heisters. These monkeys must infiltrate their opponent's base to steal their Golden Banana while defending their own.
+          </p>
+      </div>
     </div>
 
-  <!--  Story  -->
-  <section id="Histoire" class="story">
-        <section class="intro">
-            <h2>The story of Rio De Janeiro</h2>
-            <p>
-            In a world where jungles can no longer satisfy the monkeys' thirst for glory and riches, a new tradition was born:
-            <strong>the Heist Arena</strong>. Here, the cleverest, fastest, and boldest monkeys face off in epic matches for supremacy.
-            The ultimate prize? The legendary <strong>Golden Banana</strong>, a symbol of power and domination.
-            </p>
-            <p>
-            The battles take place in a one-of-a-kind arena, a <strong>monumental stadium</strong> built in the heart of the jungle, 
-            where thousands of roaring spectators cheer on their champions. Each match pits <strong>two monkeys</strong> against each other, 
-            dressed in impeccable suits reminiscent of legendary movie heisters. These monkeys must infiltrate their opponent's base to steal their Golden Banana while defending their own.
-            </p>
-        </section>
+
     
-        <section class="story1">
-            <h3>The story of Rio De Janeiro</h3>
-            <p>
+  
+    <!-- L'attaque -->
+    <div class="story-item">
+      <div class="parallax-background" style="background-image: url(figure2.png);"></div>
+      <div class="story-content">
+        <h3>A Duel of Ruse and Strategy</h3>
+        <p>
+          In Monkey Heist, it’s not just about brute strength. Each duel is a complex dance of strategy, clever traps, and heart-pounding chases. 
+          Monkeys can use their environment and even distract their opponent to infiltrate their vault.</p>
+      </div>
+    </div>
+  
+    <!-- Trahison -->
+    <div class="story-item">
+      <div class="parallax-background" style="background-image: url(figure3.png);"></div>
+      <div class="story-content">
+        <h3>Why steal the Golden Banana?</h3>
+        <p>           The Golden Banana is more than just a trophy. It is a mystical relic that, according to legend, grants superior 
+          intelligence and eternal dominance over other monkeys. For the clans, possessing it represents more than just a victory: it is a symbol of absolute power.
+</p>
+      </div>
+    </div>
+  
+    <!-- La rédemption -->
+    <div class="story-item">
+      <div class="parallax-background" style="background-image: url(figure4.png);"></div>
+      <div class="story-content">
+        <h3>The public: The True Kings</h3>
+        <p>            The matches are broadcast throughout the jungle via ultra-fast messenger snails. Bets are placed, alliances are formed, and monkeys from all corners of the world dream of seeing their champion prevail.
+        </p>
+      </div>
+    </div>
+  
+
+  </section>
+  
+  
+
+  <section id="download" class="section parallax-section" style="background-image: url(EX.png);">
+    <h2>Download </h2>
+    <p> Put on your suit, plan your heist, and get ready to enter the arena. In Monkey Heist, <strong>glory belongs to those who dare to risk it all</strong>.
+      But beware: one wrong move, and your Golden Banana will be gone.
+   </p>
+  <a href="V5.rar" download>
+    <button class="btn">Download now</button>
+  </a>
+  </section>
+
+
+
+
+
+  <section id="team" class="section">
+    <h2>About us</h2>
+    <div class="team-container">
+      <div class="team-member">
+        <a class="team-email" href="mailto:chahine.nabi@epita.fr" title="Contacter Chahine">
+          <img src="chahine.png" alt="Dev 1">
+        </a>
+        <h3>Chahine</h3>
+        <p>Gameplay Developer</p>
+        <p>I'm passionate about programming and have developed several arithmetic projects in C. At Monkey Vault Studios, I'll be mainly responsible for gameplay.</p>
+      
+        <a class="contact-button" href="https://mail.google.com/mail/?view=cm&fs=1&to=chahine.nabi@epita.fr" target="_blank">
+          📩 Contact me
+        </a>
         
-            In a world where jungles can no longer satisfy the monkeys' thirst for glory and riches, a new tradition was born:
-            <strong>the Heist Arena</strong>. Here, the cleverest, fastest, and boldest monkeys face off in epic matches for supremacy.
-            The ultimate prize? The legendary <strong>Golden Banana</strong>, a symbol of power and domination.
-            </p>
-            <p>
-            The battles take place in a one-of-a-kind arena, a <strong>monumental stadium</strong> built in the heart of the jungle, 
-            where thousands of roaring spectators cheer on their champions. Each match pits <strong>two monkeys</strong> against each other, 
-            dressed in impeccable suits reminiscent of legendary movie heisters. These monkeys must infiltrate their opponent's base to steal their Golden Banana while defending their own.
-            </p>
-        </section>
+        
+      </div>
+  
+      <div class="team-member">
+        <a class="team-email" href="mailto:mattis.rischard@epita.fr" title="Contacter Mattis">
+          <img src="mattis.png" alt="Graphiste">
+        </a>
+        <h3>Mattis</h3>
+        <p>3D graphic designer</p>
+        <p>I have a strong grounding in 3D modelling and web development skills. I will be responsible for 3D modelling. I'll also be helping out in other areas of the project.</p>
+       
+        <a class="contact-button" href="https://mail.google.com/mail/?view=cm&fs=1&to=mattis.rischard@epita.fr" target="_blank">
+          📩 Contact me
+        </a>
+      </div>
+  
+      <div class="team-member">
+        <a class="team-email" href="mailto:alexandre.taland@epita.fr" title="Contacter Alexandre">
+          <img src="alexandre.png" alt="Chef projet">
+        </a>
+        <h3>Alexandre</h3>
+        <p>Developer</p>
+        <p>My name is Alexandre Taland and I'm 18. Before Monkey Vault Studios, I created a chess game in Python. I'm responsible for the website and IA.</p>
+        
+        <a class="contact-button" href="https://mail.google.com/mail/?view=cm&fs=1&to=alexandre.taland@epita.fr" target="_blank">
+          📩 Contact me
+        </a>
+      </div>
+  
+      <div class="team-member">
+        <a class="team-email" href="mailto:virgile.pages@epita.fr" title="Contacter Virgile">
+          <img src="virgile.png" alt="Dev Réseau">
+        </a>
+        <h3>Virgile</h3>
+        <p>Project Management</p>
+        <p>I know the ‘C’ very well because I did the swimming pool at "École 42". I'll be responsible for marketing and multiplayer.</p>
+     
+        <a class="contact-button" href="https://mail.google.com/mail/?view=cm&fs=1&to=virgile.pages@epita.fr" target="_blank">
+          📩 Contact me
+        </a>
+      </div>
+  
+      <div class="team-member">
+        <a class="team-email" href="mailto:antoine.onraed@epita.fr" title="Contacter Antoine">
+          <img src="antoine.png" alt="Dev Réseau">
+        </a>
+        <h3>Antoine</h3>
+        <p>Sound Designer</p>
+        <p>I developed a Flappy Bird game in Python, which strengthened my creativity and technical skills. I'm responsible for the Apagnan.</p>
+      
+        <a class="contact-button" href="https://mail.google.com/mail/?view=cm&fs=1&to=antoine.onraed@epita.fr" target="_blank">
+          📩 Contact me
+        </a>
+      </div>
+  
+      <div class="team-member">
+        <a class="team-email" href="mailto:perso@shadowops.com" title="Contacter le Main Character">
+          <img src="PERSO.png" alt="Main Character">
+        </a>
+        <h3>Pequinio</h3>
+        <p>Main caractère</p>
+        <p>Hey! I’m Pequinio, the fastest and smartest monkey you’ll ever meet.
+Born for the thrill, raised in the shadows of the toughest banks, trained by the best banana thieves out there.
 
-        <section class="story2">
+And when things heat up, I laugh louder than the danger: ouhouhouh!
+</p>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section id="timeline" class="section">
 
-            <h3>A Duel of Ruse and Strategy</h3>
-            <p>
-            In Monkey Heist, it’s not just about brute strength. Each duel is a complex dance of strategy, clever traps, and heart-pounding chases. 
-            Monkeys can use their environment and even distract their opponent to infiltrate their vault.
-            </p>
-        </section>
-
-        <section class="story3">
-            <h3>Why steal the Golden Banana?</h3>
-            <p>
-            The Golden Banana is more than just a trophy. It is a mystical relic that, according to legend, grants superior 
-            intelligence and eternal dominance over other monkeys. For the clans, possessing it represents more than just a victory: it is a symbol of absolute power.
-            </p>
-        </section>
-
-        <section class="story4">
-            <h3>The public: The True Kings</h3>
-            <p>
-            The matches are broadcast throughout the jungle via ultra-fast messenger snails. Bets are placed, alliances are formed, and monkeys from all corners of the world dream of seeing their champion prevail.
-            </p>
-        </section>
-        <section class="story5">
-            <h3>And you?</h3>
-            <p>
-             Put on your suit, plan your heist, and get ready to enter the arena. In Monkey Heist, <strong>glory belongs to those who dare to risk it all</strong>.
-            But beware: one wrong move, and your Golden Banana will be gone.
-             </p>
-
-        </section>
-
-        <!-- image de story -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="figure3.png" alt="Outil 1"></div>
-                <div class="swiper-slide"><img src="PERSO.png" alt="Outil 2"></div>
-                <div class="swiper-slide"><img src="figure4.png" alt="Outil 3"></div>
-                <div class="swiper-slide"><img src="figure6.png" alt="Outil 5"></div>
-                <div class="swiper-slide"><img src="figure7.png" alt="Outil 6"></div>
-                <div class="swiper-slide"><img src="banane_trophe.png" alt="Outil 7"></div>
-
-
-            </div>
-         <!-- Pagination & Navigation Buttons -->
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+    <div class="timeline-bg">
+        <img src="figure4.png" alt="fond timeline" class="zoom-on-scroll" />
+      </div>
+    
+    <h2>Timeline du Projet</h2>
+    <div class="timeline">
+      <div class="timeline-item" id="item1">
+        <div class="timeline-date">September</div>
+        <div class="timeline-content">
+          <h3>Start</h3>
+          <p>The project began with an in-depth brainstorming phase in September 2024. 
+            This stage established the conceptual foundations of ‘Rio De Janeiro’ and explored ideas for gameplay, game mechanics and visual identity. 
+            These considerations led to a clear definition of the project's objectives and the identification of the tools needed to achieve them.
+            At the same time, functional and technical specifications were drawn up to define the expected functionalities and specify the technologies to be used and the development stages.</p>
         </div>
+      </div>
+      <div class="timeline-item" id="item2">
+        <div class="timeline-date">January</div>
+        <div class="timeline-content">
+          <h3>Submission n°1</h3>
+          <p>In January 2025, the first presentation was given of the first prototypes and the elements that had already been modelled. This presentation offered 
+            an overview of the work carried out, highlighting the basic gameplay mechanisms, 
+            modelling and the first technical implementations. It also provided an opportunity to obtain feedback to guide the next phases.</p>
+        </div>
+      </div>
+      <div class="timeline-item" id="item3">
+        <div class="timeline-date">March</div>
+        <div class="timeline-content">
+          <h3>Submission n°2</h3>
+          <p>Planned for March 2025, the second presentation will focus on the results of the tests, the improvements made to the gameplay and the final additions, 
+            such as music, sound effects and the full integration of user interfaces. The feedback received during this presentation has enabled us to refine the details of the project.</p>
+        </div>
+      </div>
+      <div class="timeline-item" id="item4">
+        <div class="timeline-date">May</div>
+        <div class="timeline-content">
+          <h3>Final submission</h3>
+          <p>In May 2025, the final presentation will mark the completion of the project. The complete game, including an optimised website, official trailer and gameplay, will be finalised. 
+            This will be an opportunity to highlight all the aspects of the game and to consider the release or launch phase.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="problems" class="section">
 
-        <!-- Bulle d'information -->
-        <div class="info-bubble">Everything was modelled by us!</div>
 
-
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-        <script>
-        var swiper = new Swiper(".mySwiper", {
-          slidesPerView: 1,
-          spaceBetween: 10,
-          loop: true,
-          pagination: {
-             el: ".swiper-pagination",
-              clickable: true,
-          },
-          navigation: {
-             nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-          },
-          autoplay: {
-              delay: 3000, 
-             disableOnInteraction: false,
-         },
-         });
-        </script>
-
-    </section>
-
-    
-    <!-- Section de about us -->
-    
-    <!-- singe équipe -->
-    <div class="container">
-        <div class="text-box"></div>
-        <img src="PERSO.png" class="monkey" alt="Singe">
-        <div class="speech-bubble">Don't forget me !</div>
+    <h2 class="text-3xl font-bold text-center mb-6">Problems encountered</h2>
+    <div class="parallax-money left-money">
+      <img src="money.png" alt="money left" class="w-32 opacity-30" />
+    </div>
+    <div class="parallax-money right-money">
+      <img src="money.png" alt="money right" class="w-32 opacity-30" />
     </div>
 
-    <section id="à propos de nous" class="team-section">
-        <h2>Our team</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto px-4">
+  
+      <div class="problem-card">
+        <div class="problem-icon shadow-icon"></div>
+        <h3>Synchronisation</h3>
+        <p>Manage event synchronisation when adding certain features (e.g. shooting animations (successful), weapon change (successful), life bar (successful)).</p>
+      </div>
+  
+      <div class="problem-card">
+        <div class="problem-icon maze-icon"></div>
+        <h3>Structure</h3>
+        <p>Structure of the game's classes, we need to review the general structure of the code</p>
+      </div>
+      
+  
+      <div class="problem-card">
+        <div class="problem-icon silence-icon"></div>
+        <h3>Test Management</h3>
+        <p>Testing time: multiplayer requires the game to be launched twice in order to test/bug, which makes development longer.</p>
+      </div>
+  
+      <div class="problem-card">
+        <div class="problem-icon flood-icon"></div>
+        <h3>Procedural Textures</h3>
+        <p>Procedural textures created in Blender did not display correctly in Unity. To fix this, we had to bake the textures, converting them into 2D images, allowing Unity to use them without quality loss.</p>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+  <section id="resources" class="section">
+    <h2>Ressources</h2>
+  
+    <!-- Caractéristiques du site -->
+    <div class="subsection">
+      <h3>🧠 Site characteristics</h3>
+      <ul class="resource-list three-column">
+        <li><a href="lien1.pdf" target="_blank">🎵 Sound</a></li><!-- dossier a fzire -->
+        <li><a href="lien2.pdf" target="_blank">🖼️ Image</a></li><!-- dossier a fzire -->
+        <li><a href="https://mirror-networking.com/" target="_blank">🏛️ Library</a></li>
+      </ul>
+    </div>
+  
 
-    
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="image-container">
-                    <img src="alexandre.png" alt="Membre 1">
-                    <div class="overlay">Before Monkey Vault Studios, I created a chess game in Python.
-                    I'm responsible for the website and IA.</div>
-                </div>
-                <div class="team-info">
-                    <h3>Taland Alexandre</h3>
-                    <a href="mailto:alexandre.taland@epita.fr">
-                        <img src="email.png" alt="Email" class="email-icon" style="width: 50px; height: 40px;">
-                    </a>
-                </div>
-            </div>
+    <!-- Outils utilisés -->
+<div class="subsection">
+  <h3>🛠️ Tools</h3>
+  <ul class="resource-list grid-2x3">
+    <li><a href="https://unity.com/" target="_blank">🕹️ Unity</a></li>
 
-            <div class="team-member">
-                <div class="image-container">
-                    <img src="mattis.png" alt="Membre 2">
-                    <div class="overlay">I have a strong grounding
-                    in 3D modelling and web development skills.
-                    I will be responsible for 3D modelling and online.</div>
-                </div>
-                <div class="team-info">
-                    <h3>Rischard Mattis</h3>
-                    <a href="mailto:mattis.rischard@epita.fr">
-                        <img src="email.png" alt="Email" class="email-icon" style="width: 50px; height: 40px;">
-                    </a>
-                </div>
-            </div>
+    <li><a href="https://www.blender.org/" target="_blank">🖌️ Blender</a></li>
+    <li><a href="https://code.visualstudio.com/" target="_blank">💻 VS Code</a></li>
+    <li><a href="https://www.mixamo.com/#/" target="_blank">🤖 Mixamo</a></li>
+    <li><a href="https://github.com/" target="_blank">🔧 GitHub</a></li>
+    <li><a href="https://discord.com/" target="_blank">💬 Discord</a></li>
+  </ul>
+</div>
 
-            <div class="team-member">
-                <div class="image-container">
-                    <img src="chahine.png" alt="Membre 3">
-                    <div class="overlay">I'm passionate about programming and have developed several arithmetic projects in C. At Monkey Vault Studios, I'll be mainly responsible for gameplay.</div>
-                </div>
-                <div class="team-info">
-                    <h3>Nabi Chahine</h3>
-                    <a href="mailto:chahine.nabi@epita.fr">
-                        <img src="email.png" alt="Email" class="email-icon" style="width: 50px; height: 40px;">
-                    </a>
-                </div>
-            </div>
+  
+    <!-- Documents importants -->
+    <div class="subsection">
+      <h3>📂 Important document</h3>
+      <ul class="resource-list three-column">
+        <li><a href="rapport_soutenance_1.pdf" target="_blank">📝 Rapport de soutenance n°1</a></li>
+        <li><a href="rapport_soutenance_2.pdf" target="_blank">📝 Rapport de soutenance n°2</a></li>
+        <li><a href="docs/presentation.pdf" target="_blank">📝 Rapport de soutenance final</a></li>    <!-- Documents  -->
 
-        </div>
-    
 
-        <div class="team-gride">
+        <li><a href="plan_soutenance_1.pdf" target="_blank">💾 Plan de soutenance n°1</a></li>
+        <li><a href="plan_soutenance_2.pdf" target="_blank">💾 Plan de soutenance n°2</a></li>
+        <li><a href="https://drive.google.com/folderX" target="_blank">💾 Plan de soutenance final</a></li>    <!-- Documents  -->
 
-            <div class="team-member">
-                <div class="image-container">
-                    <img src="virgile.png" alt="Membre 4">
-                    <div class="overlay">I know the ‘C’ very well because I did the swimming pool at "École 42". I'll be responsible for marketing and multiplayer.</div>
-                </div>
-                <div class="team-info">
-                    <h3>Pages Virgile</h3>
-                    <a href="mailto:virgile.pages@epita.fr">
-                        <img src="email.png" alt="Email" class="email-icon" style="width: 50px; height: 40px; ">
-                    </a>
-                 </div>
-            </div>
 
-            <div class="team-member">
-                <div class="image-container">
-                    <img src="antoine.png" alt="Membre 5">
-                    <div class="overlay">I developed a Flappy Bird game in Python, which strengthened my creativity and technical skills. I'm responsible for the interface.</div>
-                </div>
-                <div class="team-info">
-                    <h3>Onraed Antoine</h3>
-                    <a href="mailto:antoine.onraed@epita.fr">
-                        <img src="email.png" alt="Email" class="email-icon" style="width: 50px; height: 40px;">
-                    </a>
-                </div>
-            </div>
-        </div>
-    
-    </section>
-
-    <!-- Section Chronologie -->
-    <div class="zone-carte">
-
-        <section class="timeline-section">
-            <h2>Project timeline</h2>
-            <ul class="timeline">
-                <li class="event" onclick="toggleEvent(this)" aria-label="Start of the project">
-                    <div class="circle"></div>
-                    <div class="contente">
-                        <h3>Start</h3>
-                        <p>The project began with an in-depth brainstorming phase in September 2024. 
-                        This stage established the conceptual foundations of ‘Rio De Janeiro’ and explored ideas for gameplay, game mechanics and visual identity. 
-                        These considerations led to a clear definition of the project's objectives and the identification of the tools needed to achieve them.
-                        At the same time, functional and technical specifications were drawn up to define the expected functionalities and specify the technologies to be used and the development stages.</p>
-                        <img src="chro.png" alt="Project brainstorming phase" >
-                    </div>
-                </li>
-
-                <li class="event" onclick="toggleEvent(this)" aria-label="First presentation in January 2025">
-                    <div class="circle"></div>
-                    <div class="contente">
-                        <h3>Submission n°1</h3>
-                        <p>In January 2025, the first presentation was given of the first prototypes and the elements that had already been modelled. This presentation offered 
-                        an overview of the work carried out, highlighting the basic gameplay mechanisms, 
-                        modelling and the first technical implementations. It also provided an opportunity to obtain feedback to guide the next phases.</p>
-                        <img src="S1.png" alt="First prototype presentation" >
-                    </div>
-                </li>
-
-                <li class="event" onclick="toggleEvent(this)" aria-label="Second presentation planned for March 2025">
-                    <div class="circle"></div>
-                    <div class="contente">
-                        <h3>Submission n°2</h3>
-                        <p>Planned for March 2025, the second presentation will focus on the results of the tests, the improvements made to the gameplay and the final additions, 
-                        such as music, sound effects and the full integration of user interfaces. The feedback received during this presentation has enabled us to refine the details of the project.</p>
-                        <img src="prototy.png" alt="Gameplay testing phase" >
-                    </div>
-                </li>
-
-                <li class="event" onclick="toggleEvent(this)" aria-label="Final submission in May 2025">
-                    <div class="circle"></div>
-                    <div class="contente">
-                        <h3>Final submission</h3>
-                        <p>In May 2025, the final presentation will mark the completion of the project. The complete game, including an optimised website, official trailer and gameplay, will be finalised. 
-                        This will be an opportunity to highlight all the aspects of the game and to consider the release or launch phase.</p>
-                        <img src="encour.jpeg" alt="Final project presentation">
-                    </div>
-                </li>
-            </ul>
-        </section>
+        <li><a href="chronologie_projet.png" target="_blank">🗓️ Planning réalisation annuel</a></li>
+        <li><a href="cdc_fonctionnel.pdf" target="_blank">📋 Cahier des Charges fonctionnel</a></li>
+        <li><a href="cdc_technique .pdf" target="_blank">📋 Cahier des Charges technique</a></li>
+        <li><a href="manuel.pdf" target="_blank">📘 manuel d'utilisation Rio de Janeiros</a></li>
+      </ul>
     </div>
 
-    <!-- Section Problèmes Rencontrés -->
-    <section class="issues-section ">
-        <h2>Problems encountered</h2>
-        <div class="issues-container">
-            <div class="issue">
-                <h3>Synchronisation</h3>
-                <p>Manage event synchronisation when adding certain features (e.g. shooting animations (successful), weapon change (successful), life bar (successful)).</p>
-            </div>
-            <div class="issue">
-                <h3>Structure</h3>
-                <p>Structure of the game's classes, we need to review the general structure of the code</p>
-            </div>
-            <div class="issue">
-                <h3>Test Management</h3>
-                <p>Testing time: multiplayer requires the game to be launched twice in order to test/bug, which makes development longer.</p>
-            </div>
-            <div class="issue">
-                <h3>Procedural Textures</h3>
-                <p>Procedural textures created in Blender did not display correctly in Unity. To fix this, we had to bake the textures, converting them into 2D images, allowing Unity to use them without quality loss.</p>
-            </div>
-        </div>
-    </section>
 
+    <div id="scroll-progress">0%</div>
 
-    <!-- Section Ressources et Rapports -->
-    <section id="sourcess" class="resources-section">
-        <h2>Resources</h2>
-        
-        <!-- Section Rapports -->
-        <div class="reports-section">
-            <h3>Reports</h3>
-            <div class="reports-grid">
-                <div class="report-item">
-                    <a href="cdc_technique .pdf" target="_blank">
-                        <p>Cahier des charges techniques</p>
-                    </a>
-                </div>
-                <div class="report-item">
-                    <a href="cdc_fonctionnel.pdf" target="_blank">
-                        <p>Cahier des charges fonctionnels</p>
-                    </a>
-                </div>
-                <div class="report-item">
-                    <a href="rapport_soutenance_1 (13).pdf" target="_blank">
-                        <p>Rapport soutenance n°1</p>
-                    </a>
-                </div>
-                <div class="report-item">
-                    <a href="soutenance_2.pdf" target="_blank">
-                        <p>Rapport soutenance n°2</p>
-                    </a>
-                </div>
-                <div class="report-item">
-                    <a href="plan_soutenance_1 (13).pdf" target="_blank">
-                        <p>Plan soutenance n°1</p>
-                    </a>
-                </div>
-                <div class="report-item">
-                    <a href="chro.png" target="_blank">
-                        <p>Planing de réalisation</p>
-                    </a>
-                </div>
-            </div>
-        </div>
+  </section>
+  
+  <footer>
+    © 2025 Monkey Heist — All rights reserved. Projet étudiant EPITA.
+  </footer>
 
-
-        
-
-        <!-- Section Outils Utilisés -->
-        <div class="tools-section">
-            <h3>Tools</h3>
-            <div class="tools-grid">
-                <div class="tool-item">
-                    <a href="https://www.blender.org/" target="_blank">
-                        <img src="blender.png" alt="Blender">
-                    </a>
-                    <p>Blender</p>
-
-                </div>
-                <div class="tool-item">
-                    <a href="https://discord.com/" target="_blank">
-                        <img src="discord-logo-01-discord-logo-11562849833clsolz2mbc.png" alt="Discord">
-                    </a>
-                    <p>Discord</p>
-
-                </div>
-                <div class="tool-item">
-                    <a href="https://github.com/" target="_blank">
-                        <img src="github.png" alt="GitHub">
-                        
-                    </a>
-                    <p>GitHub</p>
-                </div>
-                <div class="tool-item">
-                    <a href="https://unity.com/" target="_blank">
-                        <img src="unity.png" alt="Unity">
-                        
-                    </a>
-                    <p>Unity</p>
-                </div>
-                <div class="tool-item">
-                    <a href="https://www.mixamo.com/" target="_blank">
-                        <img src="mixamo.png" alt="Mixamo">
-                        
-                    </a>
-                    <p>Mixamo</p>
-                </div>
-                    <div class="tool-item">
-                    <a href="https://code.visualstudio.com/" target="_blank">
-                        <img src="vsc.png" alt="vsc">
-                    </a>
-                    <p>VS-Code</p>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- Section Caractéristiques -->
-        <div class="characteristics-section">
-            <h3>Characteristics</h3>
-            <div class="characteristics-grid">
-                <div class="characteristic-item">
-                    <a href="image.zip" target="_blank">
-                        <p>Image</p>
-                    </a>
-                </div>
-                <div class="characteristic-item">
-                    <a href="son.zip" target="_blank">
-                        <p>Sound</p>
-                    </a>
-                </div>
-                <div class="characteristic-item">
-                    <a href="https://mirror-networking.com/" target="_blank">
-                        <p>Library</p>
-                    </a>
-                </div>
-               
-            </div>
-        </div>
-    </section>
-
-    <!-- Pied de page -->
-    <footer>
-        <div class="footer-circle">
-            <p>© 2024 Monkey Vault Studios. All rights reserved.</p>
-        </div>
-    </footer>
-
-
-
-
-
-<script>
-
-
-//chrnio
-function toggleEvent(eventElement) {
-            eventElement.classList.toggle("active");
-        }
-
-//footer
-    window.addEventListener('scroll', function() {
-    const footer = document.querySelector('footer');
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        footer.classList.add('show');
-    } else {
-        footer.classList.remove('show');
-    }
-});
-
-//menu sur mobiule
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-    document.querySelector('.navbar ul').classList.toggle('active');
-});
-
-
-
-//défilement
-function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
-}
-window.addEventListener('scroll', function () {
-    const sections = document.querySelectorAll('.fadeInOnScroll'); 
-    sections.forEach(function (section) {
-        if (isElementInViewport(section)) {
-            section.classList.add('visible');
-        }
-    });
-});
-
-//chrono
-document.addEventListener("DOMContentLoaded", function () {
-    function revealOnScroll() {
-        let events = document.querySelectorAll(".event");
-        let windowHeight = window.innerHeight;
-
-        events.forEach(event => {
-            let position = event.getBoundingClientRect().top;
-            if (position < windowHeight - 50) {
-                event.classList.add("visible");
-            }
-        });
-    }
-
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll(); 
-});
-
-//story
-document.addEventListener("DOMContentLoaded", function () {
-    const intro = document.querySelector(".story .intro");
-    const sections = document.querySelectorAll(".story section:not(.intro)");
-
-    window.addEventListener("scroll", () => {
-        let scrollPos = window.scrollY;
-
-        if (scrollPos > window.innerHeight * 0.7) {
-            intro.classList.add("fade-out");
+  <script>
+    window.addEventListener("scroll", function() {
+      const timelineItems = document.querySelectorAll(".timeline-item");
+      
+      timelineItems.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        const itemTop = rect.top;
+  
+        if (itemTop <= window.innerHeight * 0.75) {
+          item.classList.add("active");
         } else {
-            intro.classList.remove("fade-out");
+          item.classList.remove("active");
         }
-
-        sections.forEach((section, index) => {
-            let sectionTop = section.getBoundingClientRect().top;
-            if (sectionTop < window.innerHeight * 0.7) {
-                setTimeout(() => {
-                    section.classList.add("visible");
-                }, index * 700);
-            }
-        });
+      });
     });
-});
 
-//banane
-document.addEventListener("scroll", function() {
-    let scrolled = window.scrollY;
-    document.querySelector(".background-image").style.transform = `translateY(${scrolled * 0.5}px)`;
-});
-document.addEventListener("scroll", function() {
-    let scrollY = window.scrollY;
-    let backgroundImage = document.querySelector(".background-image");
 
-    if (scrollY > 500) {
-        backgroundImage.classList.add("background-visible"); 
-    } else {
-        backgroundImage.classList.remove("background-visible"); 
+  window.addEventListener('scroll', function() {
+    const parallaxElements = document.querySelectorAll('.parallax-background');
+    parallaxElements.forEach(element => {
+      let scrollPosition = window.scrollY;
+      element.style.transform = 'translateY(' + (scrollPosition * 0.2) + 'px)';
+    });
+  });
+
+
+  window.addEventListener("scroll", function () {
+    const img = document.querySelector(".zoom-on-scroll");
+    const section = document.getElementById("timeline");
+    const rect = section.getBoundingClientRect();
+
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      const scrollRatio = 1 + (window.innerHeight - rect.top) / (2 * window.innerHeight);
+      img.style.transform = `scale(${scrollRatio})`;
     }
-});
-
-//carte
-window.addEventListener('scroll', function() {
-    const scrollPosition = window.scrollY;  
-    const zoomLevel = 1 + scrollPosition / 700;  
-    const zoneCarte = document.querySelector('.zone-carte');
-
-    zoneCarte.style.backgroundSize = `${100 + zoomLevel * 5}%`;  
-});
-
-//singe
-window.addEventListener("scroll", function() {
-    const monkey = document.querySelector(".monkey");
-    const speechBubble = document.querySelector(".speech-bubble");
-    const textBox = document.querySelector(".text-box");
-    
-    const textBoxPosition = textBox.getBoundingClientRect().top;
-    const screenPosition = window.innerHeight / 1.3;
-
-    if (textBoxPosition < screenPosition) {
-        monkey.style.opacity = "1";  
-        monkey.style.transform = "translateX(120px) rotate(45deg)";  
-        speechBubble.style.opacity = "1";  
-    }
-});
-
-//pourcentage
-window.addEventListener('scroll', function() {
-  let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  let docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  let scrollPercent = (scrollTop / docHeight) * 100;
-  document.getElementById('scroll-progress').innerText = Math.round(scrollPercent) + '%';
-});
+  });
 
 
-
-
-    //  les feux d'artifice
-    function triggerFireworks() {
-        const canvas = document.getElementById("fireworksCanvas");
-        const ctx = canvas.getContext("2d");
-        const particles = [];
-        canvas.style.display = "block"; 
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        function createFireworks(x, y) {
-            for (let i = 0; i < 100; i++) {
-                particles.push({
-                    x: x,
-                    y: y,
-                    size: Math.random() * 3 + 1,
-                    speedX: Math.random() * 6 - 3,
-                    speedY: Math.random() * 6 - 3,
-                    color: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
-                    life: Math.random() * 2 + 1
-                });
-            }
-        }
-
-        function animateFireworks() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particles.length; i++) {
-                let p = particles[i];
-                p.x += p.speedX;
-                p.y += p.speedY;
-                p.life -= 0.02;
-                if (p.life <= 0) {
-                    particles.splice(i, 1);
-                    i--;
-                }
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fillStyle = p.color;
-                ctx.fill();
-            }
-            if (particles.length > 0) {
-                requestAnimationFrame(animateFireworks);
-            }
-        }
-
-        createFireworks(window.innerWidth / 2, window.innerHeight / 2);
-        animateFireworks();
-
-        setTimeout(() => {
-            canvas.style.display = "none";
-        }, 3000);
-    }
-
-
+    window.addEventListener("scroll", function () {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+    document.getElementById("scroll-progress").textContent = scrollPercent + "%";
+  });
 </script>
+
+
 </body>
 </html>
