@@ -221,63 +221,52 @@ header .logo img {
   gap: 2rem;
   margin-top: 2rem;
     }
+
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
 .story-item {
   position: relative;
-  overflow: hidden;
-  margin-bottom: 3rem;
-  background-color: #1A1A1A;
+  background: rgba(245, 234, 211, 0.95); /* papier jauni */
+  border: 2px solid #a08c6a;
+  margin: 4rem 0;
+  padding: 2rem;
+  font-family: 'Special Elite', monospace;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  z-index: 1;
 }
 
-.parallax-background {
+.story-item::before {
+  content: "TOP SECRET";
   position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 100%;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  z-index: -1;
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: red;
+  transform: rotate(-15deg);
+  opacity: 0.2;
+  font-weight: bold;
 }
 
 .story-content {
   position: relative;
-  padding: 3rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  z-index: 1;
-  color: #E0E0E0;
+  z-index: 2;
 }
 
-.story-content h3 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  color: #FFD700;
-  margin-bottom: 1rem;
+.story-item:hover {
+  transform: scale(1.01);
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
 }
 
-.story-content p {
-  font-size: 1rem;
-  line-height: 1.5;
-  max-width: 800px;
-  margin: 0 auto;
+.parallax-background {
+  filter: grayscale(100%) brightness(0.8);
+  opacity: 0.6;
 }
 
-.story-item:hover .parallax-background {
-  opacity: 0.7;
-}
-
-@media (max-width: 768px) {
-  .story-content {
-    padding: 2rem 1rem;
-  }
-
-  .story-content h3 {
-    font-size: 1.5rem;
-  }
+.story-item, 
+.story-item h3,
+.story-item p {
+  color: black;
 }
 
 
